@@ -1,0 +1,22 @@
+{
+  "durations": [
+    6,
+    8.3,
+    5.5,
+    8.2,
+    6.6,
+    5.5,
+    3.7,
+    8.3,
+    8.1,
+    6.55,
+    4.95,
+    6.85,
+    8.2,
+    6.1,
+    5.75
+  ],
+  "total": 98.6,
+  "method": "reading-speed",
+  "source": "sessiz (okuma hızı 20 karakter/sn)"
+}

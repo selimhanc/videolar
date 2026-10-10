@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Avrasya | Gazne Reels</title>
+<style>
+:root{--navy:#082a4c;--navy-deep:#082a4c;--gold:#ef950e;--gold-light:#ef950e;--white:#fff;--shadow:#000}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;min-height:100%;overflow:hidden;background:var(--navy-deep);color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}body{height:100svh;min-height:100svh;display:grid;place-items:center;padding:10px}.layout{height:100%;width:min(1120px,100%);display:grid;grid-template-columns:minmax(260px,390px) minmax(250px,370px);justify-content:center;align-items:center;gap:34px}.stage{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:var(--navy);isolation:isolate;box-shadow:0 25px 90px #000b;border:1px solid #ffffff20}.scene{position:absolute;inset:0;opacity:0;visibility:hidden;overflow:hidden}.scene.active{opacity:1;visibility:visible}.scene:before{content:"";position:absolute;inset:-7%;z-index:0;background-image:var(--scene-bg);background-position:center;background-size:cover;filter:blur(18px) brightness(.42) saturate(.85);transform:scale(1.08);opacity:.9}.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;translate:var(--focus-x,0px) var(--focus-y,0px);scale:var(--user-scale,1);background:transparent;filter:brightness(.9) contrast(1.04) saturate(1.06);will-change:transform;transform-origin:center;z-index:1}.scene.active img{animation:moveZoom 6.8s linear both}.scene[data-move="left"].active img{animation-name:moveLeft}.scene[data-move="right"].active img{animation-name:moveRight}.scene[data-move="up"].active img{animation-name:moveUp}.scene[data-move="down"].active img{animation-name:moveDown}.scene[data-move="pull"].active img{animation-name:pullBack}.scene[data-move="drift"].active img{animation-name:drift}.scene:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0008 0%,#0000 24%,#0001 48%,#000b 100%);pointer-events:none}.scene.active{animation:sceneReveal .68s cubic-bezier(.22,.75,.25,1) both}.stage.transitioning .flash{animation:flash .68s cubic-bezier(.22,.7,.25,1) both}.flash{position:absolute;z-index:10;inset:-20%;pointer-events:none;opacity:0;background:linear-gradient(112deg,transparent 32%,#ffffff88 45%,#ef950e88 49%,#ef950e66 52%,transparent 67%);mix-blend-mode:screen;transform:translateX(-120%) skewX(-15deg)}.flare{position:absolute;z-index:11;inset:0;opacity:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at 48% 50%,#ffffff 0%,#fffef0 1.2%,#fff9d8dd 2.4%,#ef950e88 4%,#ffffff00 12%),radial-gradient(circle at 48% 50%,#ffffffaa 0%,#ffffff00 7%),radial-gradient(circle at 25% 37%,#70d8ff66 0%,#70d8ff00 5%),radial-gradient(circle at 71% 62%,#ff6e9a55 0%,#ff6e9a00 6%),radial-gradient(circle at 84% 30%,#ef950e77 0%,#ef950e00 8%);mix-blend-mode:screen;filter:contrast(1.15) saturate(1.3)}.flare:before{content:"";position:absolute;left:-30%;top:calc(50% - 1px);width:160%;height:3px;background:linear-gradient(90deg,transparent 0%,#ffffff00 24%,#ffffff99 38%,#fff 48%,#ef950e 50%,#ffffffbb 52%,#ffffff00 70%,transparent 100%);box-shadow:0 0 8px 2px #fff9,0 0 24px 5px #ef950e77;transform:rotate(-13deg) scaleX(.1);transform-origin:center;opacity:0}.flare:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 39%,#a8f0ff88 0%,#a8f0ff00 3.5%),radial-gradient(circle at 33% 44%,#ffffff99 0%,#ffffff00 2.2%),radial-gradient(circle at 62% 55%,#ffbf70aa 0%,#ffbf7000 4%),radial-gradient(circle at 78% 61%,#b8d9ff77 0%,#b8d9ff00 3%),radial-gradient(circle at 91% 69%,#ef950e66 0%,#ef950e00 5%);transform:translateX(-12%) scale(.8);opacity:0}.stage.transitioning .flare{animation:flare .9s cubic-bezier(.16,.72,.24,1) both}.stage.transitioning .flare:before{animation:lensStreak .9s cubic-bezier(.16,.72,.24,1) both}.stage.transitioning .flare:after{animation:lensGhosts .9s cubic-bezier(.16,.72,.24,1) both}.grain{position:absolute;z-index:4;inset:0;pointer-events:none;opacity:.1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E")}.progress{position:absolute;z-index:12;top:0;left:0;right:0;height:3px;background:#fff5}.progress i{display:block;height:100%;width:0;background:var(--gold);box-shadow:0 0 12px #ef950e}.topline{position:absolute;z-index:6;top:19px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:center;text-transform:uppercase;letter-spacing:2px;font-size:10px;font-weight:850;text-shadow:0 2px 10px #000}.wordmark{display:flex;align-items:center;gap:8px}.mini-logo{width:24px;height:24px;border:1.5px solid var(--gold);display:grid;place-items:center;font-size:12px;color:var(--gold);font-weight:950;transform:rotate(45deg)}.mini-logo span{transform:rotate(-45deg)}.counter{color:#fff9}.caption-area{position:absolute;z-index:7;left:6%;right:6%;top:50%;transform:translateY(-50%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;pointer-events:none}.tag{font-size:clamp(10px,2.8vw,12px);font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);text-shadow:0 2px 15px #000}.caption{font-weight:950;font-size:clamp(28px,7.4vw,44px);line-height:1.12;letter-spacing:-1.1px;text-transform:uppercase;text-wrap:balance;text-shadow:0 4px 18px #000d,0 1px 2px #000;max-width:100%;width:100%;min-height:2.24em;display:flex;flex-wrap:wrap;justify-content:center;align-content:center;align-items:center;gap:.12em .22em}.caption .word{display:inline-block;opacity:0;transform:translateY(13px) scale(.96);filter:blur(3px);transition:opacity .16s ease,transform .2s cubic-bezier(.2,.8,.2,1),filter .18s ease;color:#fff}.caption .word.visible{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}.caption .word.current{color:var(--gold-light);transform:translateY(-1px) scale(1.035);text-shadow:0 0 18px #ef950e70,0 3px 15px #000}.subline{display:none;font-size:clamp(12px,3.2vw,15px);font-weight:750;line-height:1.4;max-width:94%;color:#fffffff2;text-shadow:0 2px 12px #000;min-height:2.6em}.lower{position:absolute;z-index:7;bottom:19px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:center;font-size:9px;font-weight:850;letter-spacing:1.8px;color:#fffd;text-shadow:0 2px 8px #000}.audio-bars{display:flex;gap:4px;align-items:center;height:30px}.audio-bars b{display:block;width:3px;height:11px;background:var(--gold);animation:bar .45s ease-in-out infinite alternate}.audio-bars b:nth-child(2){height:24px;animation-delay:.13s}.audio-bars b:nth-child(3){height:15px;animation-delay:.26s}.audio-bars b:nth-child(4){height:21px;animation-delay:.08s}.audio-bars b:nth-child(5){height:9px;animation-delay:.19s}.outro{position:absolute;z-index:8;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(135deg,#ffffff 0%,#f8f7f2 48%,#ffffff 100%);color:var(--navy);opacity:0;visibility:hidden;border:12px solid #fff}.outro:before{content:"";position:absolute;inset:12px;border:1px solid #ef950e;pointer-events:none}.outro.show{visibility:visible;animation:outroIn .7s cubic-bezier(.2,.8,.2,1) both}.outro-logo{display:block;max-width:72%;max-height:125px;width:auto;height:auto;object-fit:contain;opacity:0;transform:translateY(8px) scale(.96)}.outro.show .outro-logo{animation:logoIn .8s .15s cubic-bezier(.2,1.2,.4,1) forwards}.outro h2{font-size:clamp(36px,10vw,48px);letter-spacing:5px;margin:20px 0 8px;font-weight:950;color:var(--navy);opacity:0;transform:translateY(15px)}.outro.show h2{animation:rise .5s .35s forwards}.outro p{font-size:13px;letter-spacing:1.4px;color:var(--navy);margin:0;opacity:0}.outro.show p{animation:rise .5s .5s forwards}.follow{margin-top:28px;background:var(--navy);color:#fff;padding:14px 19px;font-size:12px;font-weight:950;letter-spacing:1.7px;opacity:0;transform:scale(.9)}.outro.show .follow{animation:followIn .45s .7s forwards,followPulse 1.6s 1.2s infinite}.panel{color:#f5f5ed}.panel h1{font-size:30px;line-height:1.04;letter-spacing:-1px;margin:0 0 14px}.panel p{font-size:14px;line-height:1.55;color:#bfc4b8}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.buttons button{font:inherit;font-weight:800;padding:12px 14px;border:1px solid #ffffff30;border-radius:8px;background:var(--navy);color:white;cursor:pointer}.buttons .primary{background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}.download-link{display:inline-flex;align-items:center;padding:12px 14px;border:1px solid var(--gold);border-radius:8px;color:var(--gold-light);text-decoration:none;font-weight:800;font-size:14px}.timeline{margin:16px 0 8px;padding:12px;border:1px solid #ffffff24;border-radius:10px;background:#ffffff08}.timeline-head{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;color:#e9e7dd}.timeline input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer;margin:12px 0}.seek-row{display:flex;gap:8px;align-items:center}.seek-row input{min-width:0;width:100px;background:#082a4c;color:#fff;border:1px solid #ffffff30;border-radius:6px;padding:8px;font:inherit}.seek-row button,.image-tools button{font:inherit;font-weight:800;padding:8px 10px;border:1px solid #ffffff30;border-radius:7px;background:var(--navy);color:white;cursor:pointer}.image-preview{margin-top:14px;padding:12px;border:1px solid #ffffff25;border-radius:10px;background:#ffffff08}.image-preview h3{font-size:13px;margin:0 0 8px;color:var(--gold-light)}.image-preview img{display:block;width:100%;height:170px;object-fit:contain;background:#050d1b;border-radius:6px}.image-preview .img-url{font-size:10px;line-height:1.4;color:#c6cabc;overflow-wrap:anywhere;margin:8px 0}.image-tools{display:flex;gap:7px;flex-wrap:wrap}.topic-search{margin-top:8px}.topic-label{font-size:11px;color:var(--gold-light);margin:8px 0}.image-tools button{font-size:11px;line-height:1.35;text-align:left;max-width:100%}.scene-info{margin-top:18px;border-top:1px solid #ffffff20;padding-top:14px;font-size:12px;line-height:1.9;color:#c6cabc}.scene-info b{color:var(--gold)}.note{font-size:12px!important;border-left:2px solid var(--gold);padding-left:12px;color:#aeb5a5!important}.stage.paused *, .stage.paused *:before, .stage.paused *:after{animation-play-state:paused!important;transition:none!important}.stage.paused:after{content:'';display:none}
+@keyframes moveZoom{from{transform:scale(1) translate(0,0)}to{transform:scale(1.055) translate(0,-.5%)}}@keyframes moveLeft{from{transform:scale(1.035) translateX(1.5%)}to{transform:scale(1.07) translateX(-1.5%)}}@keyframes moveRight{from{transform:scale(1.035) translateX(-1.5%)}to{transform:scale(1.07) translateX(1.5%)}}@keyframes moveUp{from{transform:scale(1.025) translateY(1.5%)}to{transform:scale(1.07) translateY(-1.5%)}}@keyframes moveDown{from{transform:scale(1.025) translateY(-1.5%)}to{transform:scale(1.07) translateY(1.5%)}}@keyframes pullBack{from{transform:scale(1.07)}to{transform:scale(1)}}@keyframes drift{0%{transform:scale(1.035) translate(-1%,1%)}50%{transform:scale(1.065) translate(1%,-.5%)}100%{transform:scale(1.04) translate(-.5%,-1%)}}@keyframes sceneReveal{from{opacity:.15;filter:brightness(1.2);transform:scale(1.015)}to{opacity:1;filter:brightness(1);transform:scale(1)}}@keyframes flash{0%{opacity:0;transform:translateX(-120%) skewX(-15deg)}35%{opacity:1}100%{opacity:0;transform:translateX(120%) skewX(-15deg)}}@keyframes flare{0%{opacity:0;transform:scale(.78) rotate(-4deg);filter:blur(5px) saturate(1)}22%{opacity:1;filter:blur(0) saturate(1.5)}52%{opacity:.88;transform:scale(1.08) rotate(0deg)}100%{opacity:0;transform:scale(1.35) rotate(2deg);filter:blur(2px) saturate(1.1)}}@keyframes lensStreak{0%{opacity:0;transform:rotate(-13deg) scaleX(.05)}22%{opacity:1;transform:rotate(-13deg) scaleX(1.15)}55%{opacity:.8;transform:rotate(-13deg) scaleX(.9)}100%{opacity:0;transform:rotate(-13deg) scaleX(.25)}}@keyframes lensGhosts{0%{opacity:0;transform:translateX(-18%) scale(.65)}24%{opacity:.9}55%{opacity:.7;transform:translateX(0) scale(1)}100%{opacity:0;transform:translateX(14%) scale(1.16)}}@keyframes bar{to{transform:scaleY(.35)}}@keyframes outroIn{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:blur(0)}}@keyframes logoIn{to{opacity:1;transform:scale(1)}}@keyframes rise{to{opacity:1;transform:translateY(0)}}@keyframes followIn{to{opacity:1;transform:scale(1)}}@keyframes followPulse{50%{box-shadow:0 0 0 7px #ef950e20}}@media(max-width:720px){body{padding:0;display:grid;place-items:center;overflow:hidden}.thumb-section{width:34vw;min-width:118px;padding:6px}.thumb-section h3{font-size:11px}.thumb-help{display:none}.scene-thumb{grid-template-columns:44px minmax(0,1fr);gap:5px;padding:4px;min-height:72px}.scene-thumb img{width:44px;height:60px}.scene-thumb strong{font-size:9px}.scene-thumb small{font-size:8px}.layout{display:block;width:66vw;margin-left:34vw;height:100dvh}.stage{width:min(66vw,37.125dvh);height:min(100dvh,117.19vw);aspect-ratio:9/16;margin:0 auto;border:0}.panel{display:none}.panel h1{font-size:25px}.scene-info{display:none}.caption-area{top:47%;left:6%;right:6%}.caption{font-size:clamp(27px,8vw,39px)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Brand polish / fixed viewport */
+html,body{overflow:hidden!important;height:100%;height:100dvh}body{padding:0;place-items:center}.layout{height:100dvh;max-height:100dvh;width:calc(100% - 260px);margin-left:260px;align-items:center;grid-template-columns:minmax(0, min(390px, 56.25dvh)) minmax(250px,370px);gap:clamp(14px,2vw,28px)}.stage{width:min(390px,56.25dvh);height:min(100dvh,177.78vw);max-height:100dvh;aspect-ratio:9/16;flex-shrink:0}.topline{top:0;left:0;right:0;height:18%;padding:18px 19px;justify-content:flex-start;background:linear-gradient(180deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.35) 48%,transparent 100%)}.corner-logo{display:block;width:60px;height:60px;object-fit:contain;filter:brightness(0) invert(1);opacity:.98;position:relative;z-index:2}.scene:after{background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.04) 23%,rgba(0,0,0,.06) 67%,rgba(0,0,0,.68) 100%)}.caption{font-size:clamp(24px,6.1vw,36px);line-height:1.16;letter-spacing:-.65px}.outro{background:radial-gradient(ellipse at 50% 26%,#fff 0%,#fff 18%,#f4f4f2 57%,#e7e8e7 100%);border:0;box-shadow:inset 0 0 90px rgba(255,255,255,.9)}.outro:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 20%,rgba(255,255,255,.9),transparent 56%)}.outro:before{inset:18px;border:1px solid rgba(201,164,92,.65);z-index:1}.outro-logo,.outro h2,.outro p,.follow{position:relative;z-index:2}.outro-logo{max-width:78%;max-height:118px;filter:drop-shadow(0 7px 18px rgba(10,25,45,.08))}.outro h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(28px,7.5vw,40px);letter-spacing:-.7px;line-height:1.1;font-weight:700;margin:25px 0 11px;color:#082a4c}.outro p{font-size:10px;font-weight:800;letter-spacing:2.1px;color:#8b6a2d}.follow{appearance:none;border:0;border-radius:999px;cursor:pointer;margin-top:30px;padding:15px 23px;background:linear-gradient(135deg,#142d53,#082a4c);color:white;font:850 12px/1 Inter,system-ui,sans-serif;letter-spacing:1.6px;box-shadow:0 9px 22px rgba(16,38,74,.22),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .18s ease,box-shadow .18s ease}.follow span{display:inline-block;color:#ef950e;margin-left:8px;transition:transform .2s ease}.follow:active,.follow.clicked{transform:scale(.94);box-shadow:0 2px 7px rgba(16,38,74,.2),0 0 0 7px rgba(201,164,92,.16)}.follow:active span,.follow.clicked span{transform:translate(3px,-2px)}.buttons #playToggle{min-width:142px}.buttons button:active,.seek-row button:active,.image-tools button:active{transform:scale(.97)}.panel{max-height:96dvh;overflow:auto;scrollbar-width:thin;scrollbar-color:#ef950e #082a4c}.image-preview img{background:#f1f1ef}
+@media(max-width:720px){body{padding:0}.layout{display:block;width:100%;height:100dvh}.stage{width:min(100vw,56.25dvh);height:min(100dvh,177.78vw);max-height:100dvh;margin:0 auto;border:0}.panel{display:none}.caption-area{top:47%;left:6%;right:6%}.caption{font-size:clamp(24px,7vw,34px)}.topline{height:17%;padding:16px}.corner-logo{width:37px;height:37px}}
+
+.lower{left:0;right:0;bottom:30px;justify-content:center;pointer-events:none}.audio-bars b:nth-child(6){height:17px;animation-delay:.17s}.audio-bars b:nth-child(7){height:25px;animation-delay:.11s}.audio-bars b:nth-child(8){height:13px;animation-delay:.23s}.audio-bars b:nth-child(9){height:20px;animation-delay:.07s}.corner-logo{width:60px;height:60px}.image-tools{gap:8px}.image-tools button{font-size:12px;padding:9px 11px;border-color:#ef950e80;color:#fff}.image-preview img{height:190px}.topic-label{margin-bottom:10px}@media(max-width:720px){.corner-logo{width:54px;height:54px}.lower{bottom:38px}.audio-bars{transform:scale(1.15)}}
+
+/* Edit / export workflow */
+.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.panel-head h1{flex:1}
+.icon-save{flex:0 0 auto;width:42px;height:42px;border:1px solid var(--gold)!important;border-radius:10px!important;background:var(--gold)!important;color:var(--navy)!important;font-size:21px!important;display:grid;place-items:center;padding:0!important}
+.tag-entry{display:flex;flex-direction:column;align-items:stretch;gap:5px;min-width:0;max-width:100%;flex:0 1 auto}
+.tag-entry .tag-pick{width:100%;white-space:normal;overflow-wrap:anywhere}
+.tag-entry textarea{display:block;width:100%;min-width:0;min-height:62px;resize:vertical;background:#061e35;color:#fff;border:1px solid var(--gold);border-radius:7px;padding:8px;font:11px/1.4 ui-monospace,monospace}
+.tag-entry .tag-actions{display:flex;gap:5px;width:100%}
+.tag-entry .tag-actions button{flex:1;min-width:0;text-align:center}
+.edit-save{background:var(--gold)!important;color:var(--navy)!important;border-color:var(--gold)!important}
+.pause-editor,.export-box{margin-top:14px;padding:12px;border:1px solid #ef950e80;border-radius:10px;background:#ffffff08}
+.pause-editor[hidden],.export-box[hidden]{display:none!important}
+.pause-editor h3,.export-box h3{font-size:13px;color:var(--gold);margin:0 0 8px}
+.pause-editor textarea,.export-box textarea{display:block;width:100%;min-height:82px;resize:vertical;background:#061e35;color:#fff;border:1px solid #ffffff35;border-radius:7px;padding:9px;font:12px/1.45 ui-monospace,monospace}
+.pause-editor button,.export-box button{margin-top:8px;font:inherit;font-size:12px;font-weight:800;line-height:1.2;padding:10px 12px;border:1px solid var(--gold);border-radius:7px;background:var(--gold);color:var(--navy);cursor:pointer}
+.export-box .export-hint{font-size:11px;color:#c6cabc;margin:0 0 8px}
+@media(max-width:720px){.panel-head h1{font-size:24px}}
+
+/* Pause-time composition controls */
+.scene img{translate:var(--focus-x,0px) var(--focus-y,0px);scale:var(--user-scale,1);object-fit:contain;object-position:50% 50%;touch-action:none;cursor:grab}
+.stage.paused .scene.active img{cursor:grab;inset:0;width:100%;height:100%;object-fit:contain;filter:brightness(.9) contrast(1.04) saturate(1.06)}
+.stage.paused .scene.active img:active{cursor:grabbing}.stage.paused{cursor:grab}.stage.paused.dragging-image{cursor:grabbing;user-select:none}.stage.paused.dragging-image *{user-select:none}
+.focus-controls{position:absolute;z-index:20;left:7px;top:50%;transform:translateY(-50%);display:none;flex-direction:column;align-items:center;gap:7px;padding:9px 6px;border:1px solid #ef950e99;border-radius:12px;background:#082a4ce8;backdrop-filter:blur(8px);box-shadow:0 4px 18px #0008}
+.stage.paused .focus-controls{display:flex}
+.focus-label{font-size:9px;font-weight:900;letter-spacing:1px;color:#ef950e;writing-mode:vertical-rl;transform:rotate(180deg)}
+.stage.dragging-image,.stage.dragging-image .scene.active{overflow:visible!important}.stage.dragging-image .scene.active{z-index:30}.stage.dragging-image .scene.active img{z-index:31;filter:brightness(.98) contrast(1.02) saturate(1.04)}
+#scaleSlider{appearance:slider-vertical;-webkit-appearance:slider-vertical;writing-mode:vertical-lr;direction:rtl;width:22px;height:148px;accent-color:#ef950e;cursor:pointer;touch-action:pan-y}
+#scaleValue{font:10px ui-monospace,monospace;color:#fff;white-space:nowrap}
+.panel-spacer{flex:1}
+@media(max-width:720px){.focus-controls{left:5px;padding:8px 4px}#scaleSlider{height:128px}.focus-label{font-size:8px}}
+
+
+.camera-controls{margin:12px 0;padding:12px;border:1px solid #ffffff24;border-radius:10px;background:#ffffff08}.camera-controls label{display:block;font-size:12px;color:#e9e7dd;margin-bottom:7px}.camera-controls select{width:100%;padding:10px;border:1px solid #ef950e99;border-radius:7px;background:#061e35;color:#fff;font:inherit}.camera-controls small{display:block;color:#c6cabc;font-size:10px;line-height:1.45;margin-top:7px}.thumb-section{position:fixed;z-index:40;left:0;top:0;bottom:0;width:260px;height:100dvh;overflow:hidden;margin:0;padding:12px;border:0;border-right:1px solid #ffffff24;border-radius:0;background:#061e35;display:flex;flex-direction:column}.thumb-section h3{font-size:13px;color:#ef950e;margin:0 0 8px}.thumb-help{font-size:11px!important;margin:0 0 8px!important}.thumb-strip{display:flex;flex-direction:column;gap:7px;flex:1;height:auto;max-height:none;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;padding:3px;scrollbar-width:thin;scrollbar-color:#ef950e #082a4c;align-items:stretch}.scene-thumb{display:grid;flex:0 0 auto;min-height:94px;grid-template-columns:66px minmax(0,1fr);gap:9px;align-items:center;padding:6px;border:1px solid #ffffff24;border-radius:8px;background:#061e35;cursor:grab;user-select:none;overflow:hidden}.scene-thumb:active{cursor:grabbing}.scene-thumb[draggable="true"]{touch-action:pan-y}.scene-thumb.dragging{opacity:.4;border-color:#ef950e}.scene-thumb.drop-target{border-color:#ef950e;background:#ef950e20}.scene-thumb img{display:block;width:66px;height:80px;object-fit:cover;object-position:center;background:#101b2b;border-radius:4px;flex:none}.scene-thumb.thumb-missing img,.scene-thumb .thumb-image-missing{background:linear-gradient(135deg,#223d5b,#082a4c);min-height:80px}.scene-thumb.thumb-missing img:after{content:"Görsel"}.scene-thumb strong{display:block;font-size:11px;line-height:1.35;color:#fff}.scene-thumb small{display:block;margin-top:4px;color:#c6cabc;font-size:10px}.scene-thumb.selected-thumb{outline:2px solid #f2a900;outline-offset:2px}.scene-thumb.current{border-color:#ef950e;box-shadow:inset 3px 0 #ef950e}.thumb-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.thumb-actions button{padding:8px 10px;border:1px solid #ef950e99;border-radius:7px;background:#082a4c;color:#fff;font:inherit;font-size:11px;font-weight:700;cursor:pointer}.scene[data-move="none"].active img{animation-name:none!important}
+</style>
+<style id="hideable-mobile-thumbnail-timeline">
+.toggle-thumb-timeline{display:none;font:700 11px system-ui;padding:4px 9px;margin:0 0 5px auto;border:1px solid #ffffff40;border-radius:6px;background:#082a4c;color:#fff;cursor:pointer;flex:0 0 auto}
+@media(max-width:900px){
+ .toggle-thumb-timeline{display:block}
+ .thumb-section{height:124px!important;max-height:124px!important;padding:5px 6px calc(5px + env(safe-area-inset-bottom))!important}
+ .thumb-strip{min-height:0!important}
+ body.mobile-thumbs-hidden .thumb-section{height:34px!important;max-height:34px!important;padding:4px 6px!important}
+ body.mobile-thumbs-hidden .thumb-strip{display:none!important}
+ body.mobile-thumbs-hidden .toggle-thumb-timeline{margin-bottom:0}
+ .layout{bottom:124px!important;height:calc(100dvh - 124px)!important}
+ .stage{height:min(calc(100dvh - 124px),177.78vw)!important;max-height:calc(100dvh - 124px)!important}
+}
+@media(max-width:900px) and (orientation:landscape){
+ .thumb-section{height:100px!important;max-height:100px!important}
+ .layout{bottom:100px!important;height:calc(100dvh - 100px)!important}
+ .stage{height:min(calc(100dvh - 100px),100dvh)!important;max-height:calc(100dvh - 100px)!important}
+ body.mobile-thumbs-hidden .thumb-section{height:34px!important;max-height:34px!important}
+ .mobile-controls-toggle{top:8px!important;bottom:auto!important}
+}
+</style>
+<script id="hideable-mobile-thumbnail-timeline-script">
+(()=>{const btn=document.getElementById('toggleThumbTimeline');if(!btn)return;btn.addEventListener('click',()=>{const hidden=!document.body.classList.contains('mobile-thumbs-hidden');document.body.classList.toggle('mobile-thumbs-hidden',hidden);btn.setAttribute('aria-expanded',String(!hidden));btn.textContent=hidden?'⌃ Görselleri göster':'⌄ Görselleri gizle';});})();
+</script>
+<style id="reel-tag-chip">
+.caption-area .tag{display:inline-block!important;background:#fff!important;color:#0a2540!important;text-shadow:none!important;padding:.32em .72em!important;border-radius:5px!important;letter-spacing:2px!important;line-height:1.1!important;font-weight:900!important;box-shadow:0 5px 18px rgba(0,0,0,.45)!important}
+</style>
+<style id="reel-record-mode">
+body.record-mode{display:block!important;padding:0!important;margin:0!important;overflow:hidden!important;height:100vh!important}body.record-mode .thumb-section,body.record-mode .panel,body.record-mode .mobile-controls-toggle,body.record-mode .mobile-timeline-toggle,body.record-mode .toggle-thumb-timeline,body.record-mode .mobile-seconds-timeline{display:none!important}body.record-mode .layout{display:block!important;width:100vw!important;height:100vh!important;margin:0!important;gap:0!important;max-height:none!important;grid-template-columns:none!important}body.record-mode .stage{width:100vw!important;height:100vh!important;max-height:none!important;aspect-ratio:auto!important;border:0!important;box-shadow:none!important;margin:0!important}body.record-mode .scene:before{display:none!important}body.record-mode .audio-bars,body.record-mode .lower{display:none!important}body.record-mode .focus-controls,body.record-mode .progress{display:none!important}body.record-mode .caption{font-size:clamp(34px,5.2dvh,72px)!important;line-height:1.18!important;letter-spacing:-1.6px!important}body.record-mode .caption-area .tag{font-size:clamp(18px,2.3dvh,34px)!important;padding:.34em .78em!important}body.record-mode .topic-label{font-size:clamp(20px,2.6dvh,42px)!important;margin:7px 0!important}body.record-mode .topline{font-size:clamp(15px,1.9dvh,30px)!important}body.record-mode .scene img{object-fit:cover!important;object-position:center!important;filter:brightness(.92) contrast(1.04) saturate(1.06)!important}body.record-mode .reel-intro{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8% 7%;background:radial-gradient(circle at 50% 32%,#0d3a66 0%,#082a4c 42%,#03121f 100%);transition:opacity .65s ease;font-family:Inter,system-ui,"Segoe UI",Arial,sans-serif}body.record-mode .reel-intro.hide{opacity:0}body.record-mode .reel-intro .ri-kicker{color:#ef950e;font-size:clamp(20px,2.6dvh,40px);font-weight:900;letter-spacing:.42em;text-transform:uppercase;margin:0 0 3.5%;text-shadow:0 2px 12px #000}body.record-mode .reel-intro .ri-title{color:#fff;font-size:clamp(46px,7.4dvh,116px);font-weight:950;line-height:1.08;letter-spacing:-1px;max-width:94%;text-shadow:0 8px 30px #000b}body.record-mode .reel-intro .ri-rule{width:16%;height:6px;border-radius:3px;background:#ef950e;margin:5% 0 0;box-shadow:0 0 22px #ef950eaa}
+</style>
+</head><body><main class="layout"><div class="stage" id="stage" aria-label="Gazne dikey video önizlemesi"><div class="progress"><i id="progress"></i></div><div class="focus-controls" id="focusControls" aria-label="Görsel odak ve ölçek ayarları"><span class="focus-label">SCALE</span><input id="scaleSlider" type="range" min="1" max="8" step="0.01" value="1" orient="vertical" aria-label="Görsel ölçeği"><output id="scaleValue">1.00×</output></div><div class="topline"><img class="corner-logo" src="../../assets/logo.webp" alt="Avrasya logo" onerror="this.style.display='none'"></div>
+<!-- Photographs from the avrasya.org "Gazne" article and open-licensed Wikimedia Commons. -->
+<section class="scene active" data-duration="5.05" data-move="right" data-tag="Gazne" data-tags="Gazne" data-caption="GAZNE ÖZELİNDE İSLAM MEDENİYET TARİHİNE BİR BAKIŞ Üç güzelin tek adı nedir diye sorarlarsa;" data-sub=""><img decoding="async" src="gorseller/img_1cw4k9v.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="4.65" data-move="up" data-tag="Gazne" data-tags="Gazne" data-caption="ortada yüksek yalçın dağlar, kuzeyinde ovalık alan, dağların güneybatısında plato.." data-sub=""><img decoding="async" src="gorseller/img_173shuy.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="8.9" data-move="drift" data-tag="Gazne" data-tags="Gazne" data-caption="Bunun üzerine bu coğrafyada İslamiyet hızla yayılmış ve Afganistan’da herhangi büyük bir kuvvet hâkimiyet kuramayıp yaklaşık 300 yıl kabîle reisleri tarafından idareler" data-sub=""><img decoding="async" src="gorseller/img_rc06s1.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="6.9" data-move="left" data-tag="Gazne" data-tags="Gazne" data-caption="devam etmişti. Sâmânîlerin gücünü kaybetmeye başladığı son zamnlarında ordunun ekseriyetini teşkil eden Türkler, Sebük Tegin önderliğinde," data-sub=""><img decoding="async" src="gorseller/img_1nr96dl.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="3.75" data-move="up" data-tag="Gazne" data-tags="Gazne" data-caption="Gazne şehri merkez olmak üzere Gazneli Devleti’ni kurdular (963)." data-sub=""><img decoding="async" src="gorseller/img_11ze6gr.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="8.5" data-move="right" data-tag="Gazne" data-tags="Gazne" data-caption="Sultan Mahmud zamanında güneye doğru bugünkü Pakistan sınırları ve biraz daha güneyi İslam ile müşerref olup âlimlerle, camilerle, medreselerle donatıldı. Kısacası Gazne;" data-sub=""><img decoding="async" src="gorseller/img_y2p6l4.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="7.05" data-move="up" data-tag="Gazne" data-tags="Gazne" data-caption="İslamiyet’in Güney Asya’ya açılan kapısı oldu. Sultan Mesud’un 1040’ta Selçuklular’a yenilmesiyle Gazne’deki Gazneliler hakimiyeti son buldu." data-sub=""><img decoding="async" src="gorseller/img_h96pkb.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="6.4" data-move="drift" data-tag="Gazne" data-tags="Gazne" data-caption="Gazne’de artık Selçuklular hizmet sancağını devralmıştı. Ânadolu’ya, Malazgirtlere uzanacak serüveninde bu defa Gazne;" data-sub=""><img decoding="async" src="gorseller/img_1e900hi.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="7.4" data-move="left" data-tag="Gazne" data-tags="Gazne" data-caption="İslamiyet’in Anadolu’ya açılan kapısı oldu diyebiliriz. Anadoludaki hoş sadâları silinmeyecek Selçuklular, takriben 120 yıl Gazne’ye hizmet ettiler." data-sub=""><img decoding="async" src="gorseller/img_1olndy0.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="6.95" data-move="right" data-tag="Gazne" data-tags="Gazne" data-caption="Herat’tan itibaren doğusundaki Kabil, Gazne ve daha güneye doğru Pencap, Delhi ve Bihar’a kadar olan bölgeye Gur bölgesi denirdi." data-sub=""><img decoding="async" src="gorseller/img_1x5f0hg.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="6.9" data-move="right" data-tag="Gazne" data-tags="Gazne" data-caption="Son Selçuklu hükümdarı Sultan Sencer’in vefatından (1157) sonra Gurlular, Gazne başta olmak üzere Afganistan’ı kontrolleri altına aldılar." data-sub=""><img decoding="async" src="gorseller/img_c58uk.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="8.4" data-move="up" data-tag="Gazne" data-tags="Gazne" data-caption="Fahruddin- i Razi Hz. Tefsir-i Kebir’ini , Gurlu Sultanı Gıyaseddin’in tahsis ettiği Herat medresesinde yazdı. Devrin hattatlarının reisi Tâcülküttâb Serahsî," data-sub=""><img decoding="async" src="gorseller/img_llxszg.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="6.65" data-move="drift" data-tag="Gazne" data-tags="Gazne" data-caption="Gazne sarayında meşhur oldu. 215 yıllık devlet hayatının yaklaşık 60 senesinde Gazne’de bulunan Gurlular büyük hizmetlerle anıldılar." data-sub=""><img decoding="async" src="gorseller/img_1q6e345.jpg" alt="Gazne"></section>
+<section class="scene" data-duration="7.35" data-move="left" data-tag="Gazne" data-tags="Gazne" data-caption="Gazne, 1215’de Gurlular’dan Hârizmşahlar’a geçti. Fakat 3-5 sene içinde kasıp kavuran Moğol istilası yüzünden Gazne’de hizmet edemediler." data-sub=""><img decoding="async" src="gorseller/img_1krgeug.jpg" alt="Gazne"></section>
+<div class="flash"></div><div class="flare"></div><div class="grain"></div><div class="lower" aria-label="Ses dalgası"><span class="audio-bars" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></span></div>
+<div class="outro" id="outro"><img class="outro-logo" src="gorseller/avrasya_logo.png" alt="Avrasya logosu"><h2>Birlikte daha fazlası.</h2><p>EĞİTİM&nbsp; · &nbsp;KÜLTÜR&nbsp; · &nbsp;DOSTLUK</p><button class="follow" id="followButton" type="button">TAKİPTE KALIN <span aria-hidden="true">↗</span></button></div></div>
+<aside class="panel" id="controlPanel"><button type="button" id="mobileControlsClose" class="mobile-controls-close" aria-label="Kontrolleri kapat">✕ Kapat</button><div class="panel-head"><span class="panel-spacer" aria-hidden="true"></span><button class="icon-save" id="saveChangesBtn" type="button" title="Değişiklikleri kaydet ve listele" aria-label="Değişiklikleri kaydet">💾</button></div><div class="buttons"><button class="primary" id="playToggle" aria-pressed="false">▶ Oynat</button><button id="restart">↺ Baştan</button><button id="replayScene" type="button">↻ Sahneyi tekrar oynat</button><a class="download-link" href="avrasya_gazne_reels.html" download="avrasya-gazne-reels.html">↓ Dosyayı indir</a><a class="download-link" href="../index.html" target="_blank" rel="noopener">⌂ Tüm reels</a></div><audio id="narrationAudio" preload="metadata" style="display:none!important" aria-hidden="true"></audio><div class="timeline"><div class="timeline-head"><b>Zaman çizelgesi</b><span><span id="currentTime">00:00.0</span> / <span id="totalTime">00:00.0</span></span></div><input id="timeline" type="range" min="0" max="100" step="0.1" value="0" aria-label="Zaman çizelgesinde ileri geri sar"><div class="seek-row"><label for="seekSeconds">Saniye</label><input id="seekSeconds" type="number" min="0" step="0.1" value="0"><button id="seekButton" type="button">Git</button></div></div><div class="camera-controls"><label for="cameraMotion">Kamera hareketi · aktif sahne</label><select id="cameraMotion"><option value="zoom">Yavaş yakınlaşma</option><option value="left">Sola kaydır</option><option value="right">Sağa kaydır</option><option value="up">Yukarı kaydır</option><option value="down">Aşağı kaydır</option><option value="pull">Uzaklaşma (zoom out)</option><option value="drift">Yumuşak sinematik hareket</option><option value="none">Hareketsiz</option></select><label for="motionSpeed" style="margin-top:10px">Kadraj hareket hızı</label><select id="motionSpeed"><option value="0.65">Yavaş</option><option value="1" selected>Normal</option><option value="1.5">Hızlı</option></select><label for="sceneDuration" style="margin-top:10px">Sahne süresi (sn)</label><input id="sceneDuration" type="number" min="0.5" max="120" step="0.1" value="7" style="width:100%;padding:10px;border:1px solid #ef950e99;border-radius:7px;background:#061e35;color:#fff;font:inherit"><button id="applySceneDuration" type="button" style="margin-top:8px;width:100%;padding:9px;border:1px solid #ef950e99;border-radius:7px;background:#082a4c;color:#fff">Süreyi uygula</button><small>Hız, hareket türünden bağımsızdır. Hareket türü/hızı değişince sahne başa alınır; oynatınca yalnız bu sahne oynar ve bitince durur. Süre değişiklikleri loga eklenir.</small></div><div class="thumb-section"><h3>Görseller · giriş / çıkış SN</h3><p class="thumb-help">Her görsel ayrı satırda. Konu başlığı kullanılmaz.</p><button type="button" id="toggleThumbTimeline" class="toggle-thumb-timeline" aria-expanded="true">⌄ Görselleri gizle</button><div class="thumb-strip" id="sceneThumbs" aria-label="Giriş ve çıkış saniyesine göre görsel zaman çizelgesi"></div><div class="thumb-actions"><button type="button" id="moveThumbUp">↑ Yukarı</button><button type="button" id="moveThumbDown">↓ Aşağı</button></div></div><div class="image-preview"><h3>Duraklatılan sahnenin görseli</h3><img id="previewImage" alt="Duraklatılan sahnenin görsel önizlemesi"><div class="topic-search"><div class="topic-label">Görsel konusu · Yandex Görsellerde ara</div><div class="image-tools" id="topicSearchButtons"><button type="button" disabled>Türkçe etiket</button><button type="button" disabled>English label</button></div></div></div><div class="pause-editor" id="pauseEditor" hidden><h3>Bu saniye için not</h3><div class="topic-label" id="noteTimestamp">SN: 00</div><textarea id="sceneNote" placeholder="Bu sahneyle ilgili notunu yaz…"></textarea><button type="button" id="saveNoteBtn">✓ Notu kaydet</button><h3 style="margin-top:14px">Altyazıyı düzenle</h3><textarea id="captionEditor" placeholder="Sahnenin tam altyazı cümlesi…"></textarea><button type="button" id="saveCaptionBtn">✓ Altyazıyı kaydet</button></div><div class="export-box" id="exportBox" hidden><h3>Toplu değişiklik listesi</h3><p class="export-hint">Bu metni kopyalayıp sohbete gönderebilirsin.</p><textarea id="exportText" readonly></textarea><button type="button" id="copyExportBtn">▣ Listeyi kopyala</button></div></aside></main><button type="button" id="mobileControlsToggle" class="mobile-controls-toggle" aria-controls="controlPanel" aria-expanded="false">☰ Kontroller</button>
+<script>
+const stage=document.getElementById('stage'),scenes=[...document.querySelectorAll('.scene')],outro=document.getElementById('outro'),bar=document.getElementById('progress'),playToggle=document.getElementById('playToggle'),timeline=document.getElementById('timeline'),seekSeconds=document.getElementById('seekSeconds'),currentTime=document.getElementById('currentTime'),totalTime=document.getElementById('totalTime'),previewImage=document.getElementById('previewImage'),narrationAudio=document.getElementById('narrationAudio');
+// Turkish pronunciation spelling rule: use â/î/û where standard Turkish orthography requires them (e.g. tarihî, dinî, millî, Âdem); keep nouns such as "tarih" unaccented.
+const narrationSegments = [
+ `GAZNE ÖZELİNDE İSLAM MEDENİYET TARİHİNE BİR BAKIŞ Üç güzelin tek adı nedir diye sorarlarsa;`,
+ `ortada yüksek yalçın dağlar, kuzeyinde ovalık alan, dağların güneybatısında plato..`,
+ `Bunun üzerine bu coğrafyada İslamiyet hızla yayılmış ve Afganistan’da herhangi büyük bir kuvvet hâkimiyet kuramayıp yaklaşık 300 yıl kabîle reisleri tarafından idareler`,
+ `devam etmişti. Sâmânîlerin gücünü kaybetmeye başladığı son zamnlarında ordunun ekseriyetini teşkil eden Türkler, Sebük Tegin önderliğinde,`,
+ `Gazne şehri merkez olmak üzere Gazneli Devleti’ni kurdular (963).`,
+ `Sultan Mahmud zamanında güneye doğru bugünkü Pakistan sınırları ve biraz daha güneyi İslam ile müşerref olup âlimlerle, camilerle, medreselerle donatıldı. Kısacası Gazne;`,
+ `İslamiyet’in Güney Asya’ya açılan kapısı oldu. Sultan Mesud’un 1040’ta Selçuklular’a yenilmesiyle Gazne’deki Gazneliler hakimiyeti son buldu.`,
+ `Gazne’de artık Selçuklular hizmet sancağını devralmıştı. Ânadolu’ya, Malazgirtlere uzanacak serüveninde bu defa Gazne;`,
+ `İslamiyet’in Anadolu’ya açılan kapısı oldu diyebiliriz. Anadoludaki hoş sadâları silinmeyecek Selçuklular, takriben 120 yıl Gazne’ye hizmet ettiler.`,
+ `Herat’tan itibaren doğusundaki Kabil, Gazne ve daha güneye doğru Pencap, Delhi ve Bihar’a kadar olan bölgeye Gur bölgesi denirdi.`,
+ `Son Selçuklu hükümdarı Sultan Sencer’in vefatından (1157) sonra Gurlular, Gazne başta olmak üzere Afganistan’ı kontrolleri altına aldılar.`,
+ `Fahruddin- i Razi Hz. Tefsir-i Kebir’ini , Gurlu Sultanı Gıyaseddin’in tahsis ettiği Herat medresesinde yazdı. Devrin hattatlarının reisi Tâcülküttâb Serahsî,`,
+ `Gazne sarayında meşhur oldu. 215 yıllık devlet hayatının yaklaşık 60 senesinde Gazne’de bulunan Gurlular büyük hizmetlerle anıldılar.`,
+ `Gazne, 1215’de Gurlular’dan Hârizmşahlar’a geçti. Fakat 3-5 sene içinde kasıp kavuran Moğol istilası yüzünden Gazne’de hizmet edemediler.`
+];
+const gazneNarration = narrationSegments.join(' ');
+let generatedNarrationUrl = null;let generatedNarrationUrls=null;
+async function readAudioDuration(url){return new Promise((resolve,reject)=>{const a=new Audio();a.preload='metadata';const ok=()=>{const d=a.duration;cleanup();(d>0&&Number.isFinite(d))?resolve(d):reject(new Error('süre okunamadı'));};const bad=()=>{cleanup();reject(new Error('yüklenemedi'));};const cleanup=()=>{a.onloadedmetadata=null;a.onerror=null;a.src='';};a.onloadedmetadata=ok;a.onerror=bad;a.src=url;});}
+function splitTtsText(text, maxLen=1800){
+ const sentences=text.split(/(?<=[.!?])\s+/); const chunks=[]; let current='';
+ for(const sentence of sentences){if((current+' '+sentence).trim().length>maxLen&&current){chunks.push(current.trim());current=sentence;}else current=(current+' '+sentence).trim();}
+ if(current)chunks.push(current);return chunks;
+}
+function syncNarrationTime(seconds){if(!narrationAudio)return;try{if(Number.isFinite(narrationAudio.duration)&&Math.abs(narrationAudio.currentTime-seconds)>.18)narrationAudio.currentTime=Math.max(0,Math.min(seconds,narrationAudio.duration||seconds));}catch(e){}}
+function startNarration(){if(!narrationAudio)return;const begin=()=>{if(!playing)return;try{narrationAudio.playbackRate=1;}catch(e){}syncNarrationTime(elapsed);const p=narrationAudio.play();if(p&&p.catch)p.catch(()=>{});};if(narrationAudio.readyState===0)narrationAudio.addEventListener('loadedmetadata',begin,{once:true});else begin();}
+function stopNarration(){if(narrationAudio){narrationAudio.pause();syncNarrationTime(elapsed);}}
+let idx=0,elapsed=0,playing=false,last=0,raf=0,wakeLock=null,manualSeek=false,singleScenePlayback=false,motionSpeed=1;
+const savedDurations=[],savedSpeeds=[];const defaultSavedLinks=[];let savedLinks;try{const storedLinks=JSON.parse(localStorage.getItem('avrasyaGazneSavedLinks')||'null');const merged=Array.isArray(storedLinks)?storedLinks.map(x=>({...x})):[];for(const d of defaultSavedLinks){const at=merged.findIndex(x=>Number(x.second)===d.second);if(at>=0)merged[at]={...merged[at],...d};else merged.push({...d});}savedLinks=merged.sort((a,b)=>a.second-b.second);}catch(_){savedLinks=defaultSavedLinks.map(x=>({...x}));}const persistSavedLinks=()=>{try{localStorage.setItem('avrasyaGazneSavedLinks',JSON.stringify(savedLinks));}catch(_){}};const savedNotes=[],savedCaptions=[],savedMotions=[],savedOrderChanges=[],savedAdjustments=[];let editingTag=null,dragState=null,dragMoved=false;const viewAdjustments=new Map(scenes.map((scene,i)=>[i,{x:0,y:0,scale:1}]));scenes.forEach((scene,i)=>{const im=scene.querySelector('img');im.dataset.baseSrc=im.getAttribute('src')||'';im.dataset.baseFallback=im.getAttribute('data-fallback')||im.dataset.baseSrc;im.dataset.baseAlt=im.alt||'';im.style.objectFit='cover';im.style.objectPosition='center';im.style.setProperty('--focus-x','0px');im.style.setProperty('--focus-y','0px');im.style.setProperty('--user-scale','1');setSceneBackground(scene,im.currentSrc||im.src)});
+function setSceneBackground(scene,src){if(!scene||!src)return;const safe=String(src).replace(/["\\\n\r]/g,'');scene.style.setProperty('--scene-bg','url("'+safe+'")')}
+function motionLabel(v){return ({zoom:'Yavaş yakınlaşma',left:'Sola kaydır',right:'Sağa kaydır',up:'Yukarı kaydır',down:'Aşağı kaydır',pull:'Uzaklaşma (zoom out)',drift:'Yumuşak sinematik hareket',none:'Hareketsiz'})[v]||v}
+async function keepScreenAwake(){try{if('wakeLock' in navigator&&!document.hidden)wakeLock=await navigator.wakeLock.request('screen')}catch(e){}}
+async function releaseScreenAwake(){try{if(wakeLock){await wakeLock.release();wakeLock=null}}catch(e){wakeLock=null}}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&playing)keepScreenAwake()});
+const durations=scenes.map(s=>+s.dataset.duration),baseNarrationDurations=scenes.map(s=>+s.dataset.duration),totalDuration=()=>durations.reduce((a,b)=>a+b,0);let total=totalDuration(),narrationTimingApplied=false;totalTime.textContent=fmt(total);timeline.max=total;
+function applyNarrationDurations(list){if(!Array.isArray(list)||!list.length)return;let used=0;for(let i=0;i<durations.length;i++){const d=Math.max(.4,Number(list[i])||baseNarrationDurations[i]||durations[i]);durations[i]=d;scenes[i].dataset.duration=d.toFixed(4);used+=d;}total=used;totalTime.textContent=fmt(total);timeline.max=total;timeline.value=0;elapsed=0;idx=0;narrationTimingApplied=true;renderAt(0);renderThumbs();updateControls();const status=document.getElementById('voiceStatus');if(status)status.textContent='Ses hazır ('+fmt(total)+'). Görsel, altyazı ve geçişler ses sürelerine göre hizalandı.';}
+function fmt(v){v=Math.max(0,+v||0);return String(Math.floor(v/60)).padStart(2,'0')+':'+String(Math.floor(v%60)).padStart(2,'0')+'.'+Math.floor((v%1)*10)}
+function buildCaption(s){const text=s.dataset.caption.trim(),words=text.split(/\s+/).map(w=>w.replace(/_/g,' ')),pages=[];let page=[],chars=0;words.forEach(word=>{const next=chars+(page.length?1:0)+word.length;if(page.length>=4||next>24){pages.push(page);page=[];chars=0}page.push(word);chars+=word.length+(page.length>1?1:0)});if(page.length)pages.push(page);const box=document.createElement('div');box.className='caption-area';const tag=document.createElement('div');tag.className='tag';tag.textContent=s.dataset.tag;const line=document.createElement('div');line.className='caption';line.setAttribute('aria-label',text);const sub=document.createElement('div');sub.className='subline';sub.textContent=s.dataset.sub;box.append(tag,line,sub);s.appendChild(box);s._pages=pages;s._wordLine=line;s._captionTag=tag;s._captionPage=-1;s._pageSlots=[]}
+scenes.forEach(buildCaption);
+document.querySelectorAll('.scene img').forEach(img=>{img.addEventListener('load',()=>{img.dataset.loaded='1';const scene=img.closest('.scene');if(scene)setSceneBackground(scene,img.currentSrc||img.src);if(scenes[idx]?.contains(img))syncPreview()});img.addEventListener('error',()=>{if(!img.dataset.fallbackTried){img.dataset.fallbackTried='1';const alt=img.dataset.fallback;if(alt&&img.src!==alt){img.src=alt;setSceneBackground(img.closest('.scene'),alt);return}}img.style.display='none';const scene=img.closest('.scene');if(scene){scene.style.background='radial-gradient(ellipse at 50% 25%,#29466a,#082a4c 72%)';scene.classList.add('image-unavailable');}})});
+const topicTranslations={};
+function syncPreview(){
+ const scene=scenes[idx],img=scene?.querySelector('img');if(!img)return;const motionSelect=document.getElementById('cameraMotion');if(motionSelect)motionSelect.value=scene.dataset.move||'zoom';
+ previewImage.src=img.currentSrc||img.src;previewImage.alt=img.alt||'Duraklatılan sahnenin görseli';
+ const tags=(scene.dataset.tags||scene.dataset.tag||'Gazne').split('|').map(t=>t.trim()).filter(Boolean);
+ const wrap=document.getElementById('topicSearchButtons');if(!wrap)return;wrap.replaceChildren();
+ tags.forEach(tr=>{
+   const en=topicTranslations[tr]||tr;
+   [[tr,tr],[en,en]].forEach(([label,query])=>{
+     const entry=document.createElement('div');entry.className='tag-entry';
+     const b=document.createElement('button');b.type='button';b.className='tag-pick';b.textContent=label;b.title='Bağlantı eklemek için tıkla';
+     const editor=document.createElement('textarea');editor.hidden=true;editor.placeholder='Görsel bağlantısını buraya yapıştır…';editor.setAttribute('aria-label',label+' görsel bağlantısı');
+     const actions=document.createElement('div');actions.className='tag-actions';actions.hidden=true;
+     const save=document.createElement('button');save.type='button';save.className='edit-save';save.textContent='✓ Kaydet';
+     const search=document.createElement('button');search.type='button';search.textContent='⌕ Yandex';search.title='Bu etiketle Yandex Görsellerde ara';
+     b.addEventListener('click',()=>{const opening=editor.hidden;wrap.querySelectorAll('textarea').forEach(t=>{if(t!==editor){t.hidden=true;t.value=''}});wrap.querySelectorAll('.tag-actions').forEach(a=>a.hidden=true);editor.hidden=!opening;actions.hidden=!opening;if(opening){editingTag={label,query,sceneIndex:idx,second:elapsed};editor.focus()}});
+     save.addEventListener('click',()=>{const link=editor.value.trim();if(!link){editor.focus();return}savedLinks.push({second:Math.round(editingTag?.second??elapsed),label,link,sceneIndex:editingTag?.sceneIndex??idx});persistSavedLinks();renderThumbs();editor.value='';editor.hidden=true;actions.hidden=true;refreshExport();});
+     search.addEventListener('click',()=>window.open('https://yandex.com/images/search?text='+encodeURIComponent(query),'_blank','noopener,noreferrer'));
+     actions.append(save,search);entry.append(b,editor,actions);wrap.appendChild(entry);
+   });
+ });
+}
+function thumbTitle(scene){return 'Görsel'}
+function renderThumbs(){
+ const box=document.getElementById('sceneThumbs');if(!box)return;
+ box.replaceChildren();
+ const entries=[];let start=0;
+ scenes.forEach((scene,i)=>{
+   const end=start+durations[i],im=scene.querySelector('img'),src=im?.dataset.baseSrc||im?.currentSrc||im?.src||'';
+   entries.push({scene,index:i,second:start,seekSecond:start+.01,edge:'in',src,label:'Giriş '+fmt(start),kind:'scene'});
+   entries.push({scene,index:i,second:end,seekSecond:Math.max(start,end-.03),edge:'out',src,label:'Çıkış '+fmt(end),kind:'scene'});
+   start=end;
+ });
+ savedLinks.forEach((link,linkIndex)=>{const scene=scenes[link.sceneIndex];if(!scene)return;entries.push({scene,index:link.sceneIndex,second:link.second,seekSecond:link.second,src:link.link,label:'Ek görsel '+fmt(link.second),kind:'link',link,linkIndex})});
+ entries.sort((a,b)=>{const d=a.second-b.second;if(d)return d;if(a.kind!==b.kind)return a.kind==='scene'?-1:1;if(a.edge!==b.edge)return a.edge==='in'?-1:1;return 0});
+ entries.forEach(entry=>{
+   const {scene,index}=entry;const card=document.createElement('div');
+   card.className='scene-thumb'+(index===idx?' current':'');card.draggable=false;card.dataset.index=String(index);card.dataset.kind=entry.kind;card.dataset.edge=entry.edge||'point';card.dataset.second=String(entry.second);
+   if(entry.kind==='link')card.dataset.linkIndex=String(entry.linkIndex);
+   card.setAttribute('aria-label',entry.label);card.title=entry.label;
+   if(selectedThumbEntry&&((entry.kind==='link'&&selectedThumbEntry.kind==='link'&&selectedThumbEntry.link===entry.link)||(entry.kind==='scene'&&selectedThumbEntry.kind==='scene'&&selectedThumbEntry.index===index&&selectedThumbEntry.edge===entry.edge)))card.classList.add('selected-thumb');
+   const img=document.createElement('img');img.alt='';img.loading='lazy';img.decoding='async';img.src=entry.src;img.referrerPolicy='no-referrer';
+   img.addEventListener('error',()=>{if(entry.kind==='scene'&&!img.dataset.fallbackTried){img.dataset.fallbackTried='1';const fb=scene.querySelector('img')?.dataset.baseFallback;if(fb&&img.src!==fb){img.src=fb;return}}img.classList.add('thumb-image-missing');img.removeAttribute('src');card.classList.add('thumb-missing')});
+   card.append(img);
+   card.addEventListener('click',()=>{if(dragMoved){dragMoved=false;return}selectedThumbEntry=entry;box.querySelectorAll('.selected-thumb').forEach(el=>el.classList.remove('selected-thumb'));card.classList.add('selected-thumb');seek(entry.seekSecond)});
+   card.addEventListener('dragstart',e=>{if(playing){e.preventDefault();return}draggedThumbEntry=entry;draggedThumbScene=entry.kind==='scene'?scene:null;card.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',entry.kind==='scene'?'scene:'+index:'link:'+entry.linkIndex)});
+   card.addEventListener('dragend',()=>{card.classList.remove('dragging');box.querySelectorAll('.drop-target').forEach(el=>el.classList.remove('drop-target'));draggedThumbScene=null;draggedThumbEntry=null});
+   card.addEventListener('dragover',e=>{if(!draggedThumbEntry||draggedThumbEntry===entry)return;if(draggedThumbEntry.kind!==entry.kind)return;e.preventDefault();card.classList.add('drop-target');e.dataTransfer.dropEffect='move'});
+   card.addEventListener('dragleave',()=>card.classList.remove('drop-target'));
+   card.addEventListener('drop',e=>{e.preventDefault();card.classList.remove('drop-target');if(!draggedThumbEntry||draggedThumbEntry===entry||draggedThumbEntry.kind!==entry.kind)return;
+     if(entry.kind==='scene'){moveSceneOrder(draggedThumbEntry.index,index);}
+     else {const a=draggedThumbEntry.link,b=entry.link;const sec=a.second;a.second=b.second;b.second=sec;savedLinks.sort((x,y)=>x.second-y.second);persistSavedLinks();selectedThumbEntry={kind:'link',link:a,index:a.sceneIndex,second:a.second};renderThumbs();seek(a.second);refreshExport();}
+   });box.append(card);
+ });
+ const current=box.querySelector('.current');if(current){const r=current.getBoundingClientRect(),br=box.getBoundingClientRect();if(r.left<br.left||r.right>br.right)current.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'})}
+}
+let draggedThumbScene=null,draggedThumbEntry=null,selectedThumbEntry=null;
+function moveSceneOrder(from,to){if(playing||from<0||to<0||from===to)return;const currentScene=scenes[idx],oldScenes=[...scenes],oldDurations=[...durations],oldAdjustments=new Map(oldScenes.map((scene,i)=>[scene,viewAdjustments.get(i)]));const moving=oldScenes[from],oldOrder=oldScenes.map(thumbTitle).join(' → ');scenes.splice(from,1);scenes.splice(to,0,moving);durations.splice(from,1);durations.splice(to,0,oldDurations[from]);const newIndexOf=new Map(scenes.map((scene,i)=>[scene,i]));const mapRecords=arr=>arr.forEach(x=>{if(Number.isInteger(x.sceneIndex)&&oldScenes[x.sceneIndex])x.sceneIndex=newIndexOf.get(oldScenes[x.sceneIndex])});mapRecords(savedLinks);persistSavedLinks();mapRecords(savedNotes);mapRecords(savedCaptions);mapRecords(savedAdjustments);mapRecords(savedMotions);viewAdjustments.clear();scenes.forEach((scene,i)=>{if(oldAdjustments.get(scene))viewAdjustments.set(i,oldAdjustments.get(scene));const im=scene.querySelector('img');stage.insertBefore(scene,stage.querySelector('.flash'));setSceneBackground(scene,im.currentSrc||im.src)});idx=scenes.indexOf(currentScene);const newOrder=scenes.map(thumbTitle).join(' → ');savedOrderChanges.push({second:Math.floor(elapsed),image:thumbTitle(moving)+' — '+(moving.querySelector('img')?.currentSrc||moving.querySelector('img')?.src||''),before:oldOrder,after:newOrder});const start=sceneStart(idx);elapsed=start+Math.min(.05,Math.max(0,durations[idx]-.05));renderAt(elapsed);stage.classList.add('paused');syncPreview();setPauseEditor(true);renderThumbs();refreshExport();syncPlayToggle()}
+function setPauseEditor(show){const box=document.getElementById('pauseEditor');if(!box)return;box.hidden=!show;if(show){document.getElementById('noteTimestamp').textContent='SN: '+Math.floor(elapsed)+' (yaklaşık '+fmt(elapsed)+')';const ed=document.getElementById('captionEditor');if(ed){ed.value=scenes[idx].dataset.caption||'';ed.dataset.original=scenes[idx].dataset.caption||'';}}}
+function formatExport(){const items=[...savedLinks.map(x=>({second:x.second,text:'SN: '+x.second+'\nETİKET: '+x.label+'\nLİNK: '+x.link})),...savedNotes.map(x=>({second:x.second,text:'SN: '+x.second+'\nNOT: '+x.note})),...savedCaptions.map(x=>({second:x.second,text:'SN: '+x.second+'\nALTYAZI ESKİ: '+x.before+'\nALTYAZI YENİ: '+x.after})),...savedMotions.map(x=>({second:x.second,text:'SN: '+x.second+'\nGÖRSEL: '+x.image+'\nKAMERA ÖNCE: '+motionLabel(x.before)+'\nKAMERA SONRA: '+motionLabel(x.after)})),...savedOrderChanges.map(x=>({second:x.second,text:'SN: '+x.second+'\nSIRALAMA ÖNCE: '+x.before+'\nSIRALAMA SONRA: '+x.after+'\nTAŞINAN GÖRSEL: '+x.image})),...savedDurations.map(x=>({second:x.second,text:'SN: '+x.second+'\nSAHNE SÜRESİ ÖNCE: '+x.before+' sn\nSAHNE SÜRESİ SONRA: '+x.after+' sn'})),...savedSpeeds.map(x=>({second:x.second,text:'SN: '+x.second+'\nHAREKET HIZI ÖNCE: '+x.before+'x\nHAREKET HIZI SONRA: '+x.after+'x'})),...savedAdjustments.map(x=>({second:x.second,text:'SN: '+x.second+(x.before?'\nÖNCE ODAK: X '+x.before.x+'px, Y '+x.before.y+'px\nÖNCE SCALE: '+x.before.scale+'x':'')+'\nODAK: X '+x.x+'px, Y '+x.y+'px\nSCALE: '+x.scale+'x'}))];items.sort((a,b)=>a.second-b.second);return items.map(x=>x.text).join('\n\n')}
+function refreshExport(){const box=document.getElementById('exportBox'),out=document.getElementById('exportText');if(!box||!out)return;out.value=formatExport();box.hidden=false;}
+async function copyExport(){refreshExport();const out=document.getElementById('exportText');out.focus();out.select();try{await navigator.clipboard.writeText(out.value)}catch(e){try{document.execCommand('copy')}catch(_){}}}
+
+function syncTimedImage(seconds,sceneIndex){const scene=scenes[sceneIndex],im=scene?.querySelector('img');if(!im)return;const candidates=savedLinks.filter(x=>x.sceneIndex===sceneIndex&&x.second<=seconds).sort((a,b)=>b.second-a.second);const chosen=candidates[0];const src=chosen?chosen.link:(im.dataset.baseSrc||im.getAttribute('src')||im.src);const fallback=chosen?chosen.link:im.dataset.baseFallback;if(im.getAttribute('src')!==src)im.setAttribute('src',src);if(fallback)im.setAttribute('data-fallback',fallback);setSceneBackground(scene,src);im.alt=chosen?(chosen.label+' görseli'):(im.getAttribute('data-base-alt')||im.alt)}
+function revealScene(i){idx=i;scenes.forEach((s,n)=>{s.classList.toggle('active',n===i);const im=s.querySelector('img');if(im){im.style.animationDuration=(durations[n]/motionSpeed)+'s';im.style.animationDelay='0s';im.style.animationPlayState='running';im.dataset.motionStarted='0';void im.offsetWidth}});outro.classList.remove('show');stage.classList.remove('transitioning');void stage.offsetWidth;stage.classList.add('transitioning');setTimeout(()=>{if(!stage.classList.contains('paused'))stage.classList.remove('transitioning')},920);const durationInput=document.getElementById('sceneDuration');if(durationInput)durationInput.value=durations[i].toFixed(1);const motionSpeedInput=document.getElementById('motionSpeed');if(motionSpeedInput)motionSpeedInput.value=String(motionSpeed);const motionInput=document.getElementById('cameraMotion');if(motionInput)motionInput.value=scenes[i].dataset.move||'zoom';const s=scenes[i];s._captionPage=-1;s._pageSlots=[];s._wordLine.replaceChildren();applyViewAdjustment(i);syncPreview();renderThumbs()}
+function preparePage(s,pageIndex){if(s._captionPage===pageIndex)return;s._captionPage=pageIndex;s._wordLine.replaceChildren();s._pageSlots=[];const page=s._pages[pageIndex]||[];page.forEach(token=>{const span=document.createElement('span');span.className='word';span.textContent=token;s._wordLine.appendChild(span);const clean=token.replace(/[.,!?;:…]+$/,'');const base=Math.max(.22,Math.min(.42,.22+clean.length*.012));const punct=/[.!?…]+$/.test(token)?.4:(/[,;:]$/.test(token)?.2:0);s._pageSlots.push({span,token,duration:base,pause:punct,start:0,end:0})})}
+function updateCaption(s,local){const lead=.12,available=Math.max(.2,durations[idx]-lead),natural=s._pages.map(page=>page.reduce((sum,token)=>sum+Math.max(.22,Math.min(.42,.22+token.replace(/[.,!?;:…]+$/,'').length*.012))+( /[.!?…]+$/.test(token)?.4:(/[,;:]$/.test(token)?.2:0)),0)),all=natural.reduce((a,b)=>a+b,0)||1,scale=available/all;let t=Math.max(0,local-lead),pageIndex=0;for(let i=0;i<natural.length-1;i++){const span=natural[i]*scale;if(t<span)break;t-=span;pageIndex=i+1}preparePage(s,pageIndex);let active=-1,cursor=0;const slots=s._pageSlots;slots.forEach((slot,n)=>{slot.start=cursor;slot.end=cursor+slot.duration*scale;if(t>=slot.start)active=n;cursor=slot.end+slot.pause*scale});slots.forEach((slot,n)=>{slot.span.classList.toggle('visible',n<=active);slot.span.classList.toggle('current',n===active)})}
+function syncImageMotion(local,seekFrame=false){const im=scenes[idx]?.querySelector('img');if(im){if(playing&&im.dataset.frozenTransform==='1'){im.style.transform='';im.style.animation='';delete im.dataset.frozenTransform}im.style.animationDuration=(durations[idx]/motionSpeed)+'s';/* Pin camera animation to the audio-derived playhead, so dropped frames cannot desynchronise it. */im.style.animationDelay='-'+Math.max(0,local)+'s';im.style.animationPlayState='paused';im.dataset.motionStarted='1';applyViewAdjustment(idx)}}
+function clampViewAdjustment(sceneIndex,a){const r=stage.getBoundingClientRect(),scale=Math.max(1,Math.min(8,Number(a.scale)||1));a.scale=scale;const im=scenes[sceneIndex]?.querySelector('img');let maxX=0,maxY=0;if(im&&im.naturalWidth&&im.naturalHeight){const fit=Math.max(r.width/im.naturalWidth,r.height/im.naturalHeight),w=im.naturalWidth*fit*scale,h=im.naturalHeight*fit*scale;maxX=Math.max(0,(w-r.width)/2);maxY=Math.max(0,(h-r.height)/2)}a.x=Math.max(-maxX,Math.min(maxX,Number(a.x)||0));a.y=Math.max(-maxY,Math.min(maxY,Number(a.y)||0));return a}
+function applyViewAdjustment(sceneIndex){const im=scenes[sceneIndex]?.querySelector('img');if(!im)return;const a=clampViewAdjustment(sceneIndex,viewAdjustments.get(sceneIndex)||{x:0,y:0,scale:1});viewAdjustments.set(sceneIndex,a);im.style.setProperty('--focus-x',a.x+'px');im.style.setProperty('--focus-y',a.y+'px');im.style.setProperty('--user-scale',String(a.scale));if(sceneIndex===idx){const slider=document.getElementById('scaleSlider'),value=document.getElementById('scaleValue');if(slider)slider.value=a.scale;if(value)value.textContent=Number(a.scale).toFixed(2)+'×'}}
+function logAdjustment(before=null){const a=viewAdjustments.get(idx)||{x:0,y:0,scale:1};const item={second:Math.floor(elapsed),sceneIndex:idx,x:Math.round(a.x),y:Math.round(a.y),scale:+a.scale.toFixed(2)};if(before)item.before={x:Math.round(before.x),y:Math.round(before.y),scale:+before.scale.toFixed(2)};savedAdjustments.push(item);refreshExport()}
+function updateControls(){timeline.value=elapsed;seekSeconds.value=elapsed.toFixed(1);currentTime.textContent=fmt(elapsed);bar.style.width=(elapsed/total*100)+'%'}
+function renderAt(seconds){elapsed=Math.max(0,Math.min(total,seconds));let acc=0,next=0;for(;next<durations.length-1&&elapsed>=acc+durations[next];next++)acc+=durations[next];if(elapsed>=total){playing=false;stopNarration();syncNarrationTime(total);outro.classList.add('show');scenes.forEach(s=>s.classList.remove('active'));updateControls();return}revealScene(next);syncTimedImage(elapsed,next);updateCaption(scenes[next],elapsed-acc);syncImageMotion(elapsed-acc,true);updateControls();if(!playing)stage.classList.add('paused');}
+function tick(t){if(!playing)return;if(!last)last=t;const frameDelta=(t-last)/1000;last=t;const hasNarration=!!(narrationAudio&&narrationAudio.src&&Number.isFinite(narrationAudio.duration)&&narrationAudio.duration>0);if(hasNarration&&!narrationAudio.paused&&!narrationAudio.ended){elapsed=narrationAudio.currentTime;}else if(hasNarration&&narrationAudio.paused&&narrationAudio.readyState>=2){pause();return;}else{elapsed+=Math.max(0,frameDelta);}if(singleScenePlayback&&elapsed>=sceneStart(idx)+durations[idx]){elapsed=sceneStart(idx)+durations[idx];playing=false;cancelAnimationFrame(raf);stage.classList.add('paused');renderAt(elapsed-.001);stage.classList.add('paused');syncPreview();setPauseEditor(true);syncPlayToggle();releaseScreenAwake();singleScenePlayback=false;return}if(elapsed>=total){elapsed=total;playing=false;stopNarration();syncNarrationTime(total);outro.classList.add('show');scenes.forEach(s=>s.classList.remove('active'));updateControls();syncPlayToggle();releaseScreenAwake();return}let acc=0,next=0;for(;next<durations.length-1&&elapsed>=acc+durations[next];next++)acc+=durations[next];if(next!==idx)revealScene(next);syncTimedImage(elapsed,next);updateCaption(scenes[next],elapsed-acc);syncImageMotion(elapsed-acc);updateControls();raf=requestAnimationFrame(tick)}
+function syncPlayToggle(){if(!playToggle)return;playToggle.textContent=playing?'Ⅱ Duraklat':'▶ Oynat';playToggle.setAttribute('aria-pressed',String(playing))}function play(){if(playing)return;if(elapsed>=total)elapsed=0;outro.classList.remove('show');playing=true;last=0;stage.classList.remove('paused');setPauseEditor(false);keepScreenAwake();syncPlayToggle();renderPlayhead();startNarration();raf=requestAnimationFrame(tick)}function renderPlayhead(){let acc=0,next=0;for(;next<durations.length-1&&elapsed>=acc+durations[next];next++)acc+=durations[next];if(next!==idx)revealScene(next);syncTimedImage(elapsed,next);updateCaption(scenes[next],elapsed-acc);syncImageMotion(elapsed-acc,true);updateControls()}
+function pause(){playing=false;cancelAnimationFrame(raf);last=0;stopNarration();stage.classList.remove('transitioning');stage.classList.add('paused');const activeScene=scenes[idx];if(activeScene){activeScene.style.animation='none';activeScene.style.opacity='1';activeScene.style.visibility='visible'}syncImageMotion(Math.max(0,elapsed-sceneStart(idx)),true);stage.classList.remove('transitioning');syncPreview();setPauseEditor(true);updateControls();syncPlayToggle()}
+function restart(){playing=false;cancelAnimationFrame(raf);stopNarration();elapsed=0;syncNarrationTime(0);outro.classList.remove('show');stage.classList.remove('paused');renderAt(0);play()}
+function seek(v){playing=false;cancelAnimationFrame(raf);last=0;stopNarration();stage.classList.remove('transitioning');stage.classList.add('paused');renderAt(parseFloat(v)||0);syncNarrationTime(elapsed);stage.classList.remove('transitioning');syncPreview();setPauseEditor(true);syncPlayToggle()}
+if(narrationAudio){narrationAudio.addEventListener('seeking',()=>{if(!playing)syncNarrationTime(narrationAudio.currentTime)});narrationAudio.addEventListener('pause',()=>{if(playing&&!narrationAudio.ended){playing=false;cancelAnimationFrame(raf);last=0;stage.classList.add('paused');syncPlayToggle();updateControls();releaseScreenAwake();}});narrationAudio.addEventListener('ended',()=>{if(playing){elapsed=total;playing=false;cancelAnimationFrame(raf);last=0;renderAt(total-.001);elapsed=total;outro.classList.add('show');scenes.forEach(s=>s.classList.remove('active'));updateControls();syncPlayToggle();releaseScreenAwake();}});}
+playToggle.onclick=()=>playing?pause():play();document.getElementById('restart').onclick=restart;timeline.addEventListener('input',e=>{seekSeconds.value=(+e.target.value).toFixed(1);seek(e.target.value)});timeline.addEventListener('change',e=>seek(e.target.value));document.getElementById('seekButton').onclick=()=>seek(seekSeconds.value);seekSeconds.addEventListener('keydown',e=>{if(e.key==='Enter')seek(seekSeconds.value)});stage.addEventListener('click',e=>{if(dragMoved){dragMoved=false;e.preventDefault();return}if(e.target.closest('button, input, output'))return;if(playing)pause();else play()});
+document.getElementById('saveChangesBtn').addEventListener('click',copyExport);
+document.getElementById('saveNoteBtn').addEventListener('click',()=>{const note=document.getElementById('sceneNote').value.trim();if(!note)return;savedNotes.push({second:Math.floor(elapsed),sceneIndex:idx,note});document.getElementById('sceneNote').value='';refreshExport();});
+document.getElementById('copyExportBtn').addEventListener('click',copyExport);
+document.getElementById('saveCaptionBtn').addEventListener('click',()=>{const ed=document.getElementById('captionEditor'),after=ed.value.trim(),before=scenes[idx].dataset.caption||'';if(!after||after===before)return;const second=Math.floor(elapsed),scene=scenes[idx];savedCaptions.push({second,sceneIndex:idx,before,after});scene.dataset.caption=after;const oldBox=scene.querySelector('.caption-area');if(oldBox)oldBox.remove();buildCaption(scene);scene._captionPage=-1;scene._pageSlots=[];updateCaption(scene,Math.max(0,elapsed-sceneStart(idx)));ed.dataset.original=after;refreshExport();});
+function sceneStart(index){let t=0;for(let i=0;i<index;i++)t+=durations[i];return t}
+
+function resetCurrentSceneForPreview(){playing=false;cancelAnimationFrame(raf);last=0;singleScenePlayback=true;elapsed=sceneStart(idx);outro.classList.remove('show');stage.classList.add('paused');renderAt(elapsed+.001);stage.classList.add('paused');syncPreview();setPauseEditor(true);syncPlayToggle()}
+document.getElementById('cameraMotion').addEventListener('change',e=>{if(playing){e.target.value=scenes[idx].dataset.move||'zoom';return}const scene=scenes[idx],before=scene.dataset.move||'zoom',after=e.target.value;if(before===after)return;const img=scene.querySelector('img');savedMotions.push({second:Math.floor(elapsed),sceneIndex:idx,image:(img.alt||thumbTitle(scene))+' | '+(img.currentSrc||img.src),before,after});scene.dataset.move=after;img.style.animationName=after==='zoom'?'moveZoom':({left:'moveLeft',right:'moveRight',up:'moveUp',down:'moveDown',pull:'pullBack',drift:'drift',none:'none'})[after];img.style.animationDuration=(durations[idx]/motionSpeed)+'s';img.style.animationTimingFunction='linear';img.style.animationFillMode='both';img.style.animationDelay='0s';img.style.animationPlayState='paused';void img.offsetWidth;img.dataset.motionStarted='0';applyViewAdjustment(idx);resetCurrentSceneForPreview();const local=Math.max(0,elapsed-sceneStart(idx));img.style.animationDelay='-'+(local*motionSpeed)+'s';img.style.animationPlayState='paused';void img.offsetWidth;renderThumbs();refreshExport()});
+
+document.getElementById('motionSpeed').value='1';document.getElementById('motionSpeed').addEventListener('change',e=>{if(playing){e.target.value=String(motionSpeed);return}const before=motionSpeed,after=Number(e.target.value)||1;if(before===after)return;motionSpeed=after;savedSpeeds.push({second:Math.floor(elapsed),sceneIndex:idx,before,after});resetCurrentSceneForPreview();refreshExport()});
+document.getElementById('applySceneDuration').addEventListener('click',()=>{if(playing)return;const input=document.getElementById('sceneDuration'),before=durations[idx],after=Math.max(.5,Math.min(120,Number(input.value)||before));if(before===after)return;const start=sceneStart(idx);durations[idx]=after;scenes[idx].dataset.duration=after.toFixed(1);savedDurations.push({second:Math.floor(elapsed),sceneIndex:idx,before:+before.toFixed(1),after:+after.toFixed(1)});total=totalDuration();totalTime.textContent=fmt(total);timeline.max=total;elapsed=start;resetCurrentSceneForPreview();updateControls();renderThumbs();refreshExport()});
+document.getElementById('replayScene').addEventListener('click',()=>{if(playing)pause();const target=selectedThumbEntry&&selectedThumbEntry.index===idx?selectedThumbEntry.second:sceneStart(idx);elapsed=target;singleScenePlayback=true;stage.classList.add('paused');renderAt(Math.min(target+.001,Math.max(0,total-.001)));stage.classList.add('paused');play()});
+document.addEventListener('keydown',e=>{if(e.code!=='Space'||e.repeat)return;const t=e.target;if(t&&(t.matches('input,textarea,select,button,[contenteditable="true"]')||t.closest('[contenteditable="true"]')))return;e.preventDefault();if(playing)pause();else play()});
+document.getElementById('moveThumbUp').addEventListener('click',()=>moveSceneOrder(idx,idx-1));document.getElementById('moveThumbDown').addEventListener('click',()=>moveSceneOrder(idx,idx+1));
+const scaleSlider=document.getElementById('scaleSlider');
+scaleSlider.addEventListener('input',()=>{if(playing){const a=viewAdjustments.get(idx)||{x:0,y:0,scale:1};scaleSlider.value=a.scale;return}const a=viewAdjustments.get(idx)||{x:0,y:0,scale:1};const before={...a};a.scale=Math.max(1,Math.min(8,+scaleSlider.value||1));clampViewAdjustment(idx,a);viewAdjustments.set(idx,a);applyViewAdjustment(idx);if(before.scale!==a.scale||before.x!==a.x||before.y!==a.y)logAdjustment(before)});
+stage.addEventListener('pointerdown',e=>{if(playing||!stage.classList.contains('paused')||e.target.closest('#focusControls,button,input,output,a'))return;const sceneIndex=idx,img=scenes[sceneIndex]?.querySelector('img');if(!img)return;const a=viewAdjustments.get(sceneIndex)||{x:0,y:0,scale:1};dragState={sceneIndex,startX:e.clientX,startY:e.clientY,baseX:a.x,baseY:a.y,baseScale:a.scale,pointerId:e.pointerId};dragMoved=false;stage.setPointerCapture?.(e.pointerId);stage.classList.add('dragging-image');e.preventDefault()});stage.addEventListener('pointermove',e=>{if(!dragState)return;const dx=e.clientX-dragState.startX,dy=e.clientY-dragState.startY;if(Math.abs(dx)+Math.abs(dy)>2)dragMoved=true;const a=viewAdjustments.get(dragState.sceneIndex)||{x:0,y:0,scale:1};a.x=Math.round(dragState.baseX+dx);a.y=Math.round(dragState.baseY+dy);clampViewAdjustment(dragState.sceneIndex,a);viewAdjustments.set(dragState.sceneIndex,a);applyViewAdjustment(dragState.sceneIndex)});const endFocusDrag=e=>{if(!dragState)return;const state=dragState,moved=dragMoved;dragState=null;stage.classList.remove('dragging-image');if(moved){logAdjustment({x:state.baseX,y:state.baseY,scale:state.baseScale});setTimeout(()=>{dragMoved=false},80)}};stage.addEventListener('pointerup',endFocusDrag);stage.addEventListener('pointercancel',endFocusDrag);
+
+document.getElementById('followButton').onclick=e=>{const b=e.currentTarget;b.classList.remove('clicked');void b.offsetWidth;b.classList.add('clicked');window.open('https://avrasya.org/','_blank','noopener')};
+renderAt(0);stage.classList.remove('paused');document.getElementById('sceneDuration').value=durations[0].toFixed(1);syncPlayToggle();renderThumbs();
+</script>
+<style id="stability-and-responsive-fixes">
+/* Single active frame: no stacked scene fade/transform during cuts. */
+.scene.active{animation:none!important;z-index:2}
+.scene:not(.active){z-index:0;pointer-events:none}
+.stage.transitioning .flash{animation:flash .68s cubic-bezier(.22,.7,.25,1) both!important;opacity:1!important}.stage.transitioning .flare{animation:flare .9s cubic-bezier(.16,.72,.24,1) both!important}.stage.transitioning .flare:before{animation:lensStreak .9s cubic-bezier(.16,.72,.24,1) both!important}.stage.transitioning .flare:after{animation:lensGhosts .9s cubic-bezier(.16,.72,.24,1) both!important}
+.scene img{backface-visibility:hidden;-webkit-backface-visibility:hidden;touch-action:pan-y;}
+/* Native HTML drag is unreliable on touch screens; pointer drag is handled below. */
+.scene-thumb{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.scene-thumb.dragging{opacity:.45;cursor:grabbing}
+.scene-thumb.drop-target{outline:2px solid var(--gold);outline-offset:-2px}
+.scene-thumb .thumb-info{min-width:0;overflow-wrap:anywhere}
+/* Landscape phones: timeline stays as a narrow left rail; portrait preview fits beside it. */
+@media (max-width:900px) and (orientation:landscape){
+ html,body{height:100%;height:100dvh;overflow:hidden!important}
+ body{display:block;padding:0}
+ .thumb-section{position:fixed;left:0;top:0;bottom:0;width:24vw;min-width:118px;max-width:230px;height:100dvh;overflow:hidden;padding:6px;z-index:30;background:#06172a}
+ .thumb-section h3{font-size:11px;margin:4px 0 6px}
+ .thumb-strip{height:calc(100dvh - 76px);max-height:none;overflow-y:auto;overscroll-behavior:contain}
+ .scene-thumb{grid-template-columns:40px minmax(0,1fr);min-height:56px;gap:5px;padding:3px}
+ .scene-thumb img{width:40px;height:48px;object-fit:cover}
+ .scene-thumb strong{font-size:9px;line-height:1.2}
+ .scene-thumb small{font-size:8px;line-height:1.2}
+ .layout{display:block;position:fixed;left:24vw;top:0;width:76vw;height:100dvh;max-height:100dvh;margin:0}
+ .stage{width:auto;height:96dvh;max-height:96dvh;aspect-ratio:9/16;max-width:54dvh;margin:2dvh auto;border:0}
+ .panel{display:none!important}
+ .focus-controls{left:4px;top:50%;transform:translateY(-50%);padding:6px 3px}
+ #scaleSlider{height:min(30dvh,120px)}
+ .caption-area{top:47%;left:6%;right:6%}
+ .caption{font-size:clamp(17px,4.2dvh,27px)}
+ .topline{padding:8px;height:14%}
+ .corner-logo{width:32px;height:32px}
+ .lower{bottom:18px}
+}
+@media (max-width:720px) and (orientation:portrait){
+ .thumb-section{width:31vw;min-width:108px;max-width:150px}
+ .layout{width:69vw;margin-left:31vw}
+ .stage{width:min(69vw,38.8125dvh);height:min(100dvh,122.67vw);margin:0 auto}
+ .scene-thumb{grid-template-columns:38px minmax(0,1fr);gap:4px}
+ .scene-thumb img{width:38px;height:52px;object-fit:cover}
+}
+</style>
+<script id="touch-timeline-drag-fix">
+(()=>{
+ const box=document.getElementById('sceneThumbs');
+ if(!box)return;
+ let pending=null,dragging=null,startX=0,startY=0,lastTarget=null;
+ const clearMarks=()=>box.querySelectorAll('.drop-target').forEach(n=>n.classList.remove('drop-target'));
+ box.addEventListener('pointerdown',e=>{
+   const card=e.target.closest('.scene-thumb');
+   if(!card||e.button===2)return;
+   pending=card;startX=e.clientX;startY=e.clientY;dragging=null;lastTarget=null;
+ },{passive:true});
+ box.addEventListener('pointermove',e=>{
+   if(!pending&&!dragging)return;
+   if(!dragging){
+     if(Math.abs(e.clientX-startX)+Math.abs(e.clientY-startY)<9)return;
+     dragging=pending;dragging.classList.add('dragging');
+     try{dragging.setPointerCapture(e.pointerId)}catch(_){}
+   }
+   const el=document.elementFromPoint(e.clientX,e.clientY);
+   const target=el&&el.closest?el.closest('.scene-thumb'):null;
+   clearMarks();lastTarget=target&&target!==dragging&&target.dataset.kind===dragging.dataset.kind?target:null;
+   if(lastTarget)lastTarget.classList.add('drop-target');
+   const r=box.getBoundingClientRect();if(e.clientY<r.top+36)box.scrollTop-=12;else if(e.clientY>r.bottom-36)box.scrollTop+=12;
+   e.preventDefault();
+ },{passive:false});
+ const finish=e=>{
+   if(dragging){
+     const from=dragging,to=lastTarget;
+     from.classList.remove('dragging');clearMarks();
+     if(to){
+       const fromIndex=Number(from.dataset.index),toIndex=Number(to.dataset.index),kind=from.dataset.kind;
+       if(kind==='scene')moveSceneOrder(fromIndex,toIndex);
+       else {
+         const a=Number(from.dataset.linkIndex),b=Number(to.dataset.linkIndex);
+         const one=savedLinks[a],two=savedLinks[b];
+         if(one&&two){const second=one.second;one.second=two.second;two.second=second;savedLinks.sort((x,y)=>x.second-y.second);persistSavedLinks();selectedThumbEntry={kind:'link',link:one,index:one.sceneIndex,second:one.second};renderThumbs();seek(one.second);refreshExport();}
+       }
+       dragMoved=true;setTimeout(()=>dragMoved=false,180);
+     }
+   }
+   pending=null;dragging=null;lastTarget=null;clearMarks();
+ };
+ box.addEventListener('pointerup',finish);box.addEventListener('pointercancel',finish);
+})();
+</script>
+
+
+<style id="mobile-control-drawer-style">
+.mobile-controls-toggle,.mobile-controls-close{display:none}
+@media(max-width:900px){
+ .mobile-controls-toggle{display:block;position:fixed;right:10px;bottom:10px;z-index:80;padding:11px 14px;border:1px solid #ffffff55;border-radius:999px;background:#ef950e;color:#08182b;font:700 13px system-ui;box-shadow:0 5px 22px #0008}
+ .mobile-controls-close{display:block;position:sticky;top:0;z-index:3;margin:0 0 12px auto;padding:9px 12px;border:1px solid #ffffff40;border-radius:8px;background:#ef950e;color:#08182b;font-weight:800}
+ #controlPanel{display:none!important;position:fixed!important;right:0!important;top:0!important;bottom:0!important;left:auto!important;width:min(86vw,360px)!important;max-width:100vw;height:100dvh!important;max-height:100dvh!important;overflow-y:auto!important;overscroll-behavior:contain;z-index:75!important;margin:0!important;padding:12px!important;background:#071a2e!important;box-shadow:-12px 0 40px #000a}
+ body.mobile-controls-open #controlPanel{display:block!important}
+ body.mobile-controls-open .mobile-controls-toggle{display:none}
+}
+@media(max-width:900px) and (orientation:landscape){
+ #controlPanel{width:min(52vw,420px)!important}
+ .mobile-controls-toggle{right:8px;bottom:8px;padding:8px 11px}
+}
+</style>
+<script id="mobile-control-drawer-script">
+(()=>{const open=document.getElementById('mobileControlsToggle'),close=document.getElementById('mobileControlsClose');if(!open||!close)return;const set=v=>{document.body.classList.toggle('mobile-controls-open',v);open.setAttribute('aria-expanded',String(v));};open.addEventListener('click',()=>set(true));close.addEventListener('click',()=>set(false));document.addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});})();
+</script>
+
+
+<style id="mobile-fullscreen-image-timeline">
+/* Timeline is a filmstrip: image thumbnails only, no text labels or controls. */
+.thumb-section h3,.thumb-section .thumb-help,.thumb-section .thumb-actions,.scene-thumb .thumb-info{display:none!important}
+.scene-thumb{display:block!important;position:relative;min-width:0!important;min-height:0!important;width:72px;height:78px;flex:0 0 72px!important;padding:3px!important;overflow:hidden;border:1px solid #ffffff35!important;border-radius:7px!important;background:#07182a!important;}
+.scene-thumb img{display:block!important;width:100%!important;height:100%!important;min-height:0!important;object-fit:cover!important;border-radius:4px!important;}
+.thumb-strip{gap:6px!important;scrollbar-width:thin;}
+@media(max-width:900px){
+ html,body{width:100%;height:100%;height:100dvh;overflow:hidden!important}
+ body{display:block!important;padding:0!important;margin:0!important}
+ .layout{position:fixed!important;left:0!important;top:0!important;right:0!important;bottom:106px!important;width:100vw!important;height:calc(100dvh - 106px)!important;max-height:none!important;margin:0!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important;}
+ .stage{position:relative!important;width:min(100vw,56.25dvh)!important;height:min(calc(100dvh - 106px),177.78vw)!important;max-width:100vw!important;max-height:calc(100dvh - 106px)!important;aspect-ratio:9/16!important;margin:0 auto!important;border:0!important;flex:0 0 auto!important;}
+ .thumb-section{position:fixed!important;left:0!important;right:0!important;top:auto!important;bottom:0!important;width:100vw!important;min-width:0!important;max-width:none!important;height:106px!important;max-height:106px!important;padding:8px 6px calc(8px + env(safe-area-inset-bottom))!important;margin:0!important;border:0!important;border-top:1px solid #ffffff30!important;border-radius:0!important;z-index:70!important;display:flex!important;flex-direction:column!important;background:#06172a!important;}
+ .thumb-strip{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;flex:1 1 auto!important;overflow-x:auto!important;overflow-y:hidden!important;overscroll-behavior-x:contain!important;scroll-snap-type:x proximity!important;padding:2px 3px!important;}
+ .scene-thumb{scroll-snap-align:center;}
+ .panel{display:none!important}
+ .mobile-controls-toggle{right:8px!important;top:8px!important;bottom:auto!important;z-index:85!important;}
+ body.mobile-controls-open .thumb-section{visibility:hidden;pointer-events:none}
+ .focus-controls{z-index:25!important;}
+}
+@media(max-width:900px) and (orientation:landscape){
+ .layout{left:0!important;right:0!important;top:0!important;bottom:82px!important;width:100vw!important;height:calc(100dvh - 82px)!important;}
+ .stage{width:min(56.25dvh,calc((100dvh - 82px)*.5625))!important;height:min(calc(100dvh - 82px),100dvh)!important;max-height:calc(100dvh - 82px)!important;}
+ .thumb-section{height:82px!important;max-height:82px!important;padding:4px 6px calc(4px + env(safe-area-inset-bottom))!important;}
+ .scene-thumb{width:56px;height:68px;flex-basis:56px!important;}
+ .mobile-controls-toggle{padding:7px 10px!important;font-size:11px!important;}
+}
+@media(min-width:901px){.thumb-strip{align-items:stretch}.scene-thumb{width:100%;height:78px;flex-basis:78px!important}.scene-thumb img{object-fit:cover!important}}
+</style>
+
+
+
+
+<style id="mobile-timeline-toggle-fix">
+.mobile-timeline-toggle{display:none}
+@media(max-width:900px){
+ .mobile-timeline-toggle{display:block;position:fixed;right:8px;bottom:10px;z-index:84;padding:9px 12px;border:1px solid #ffffff55;border-radius:999px;background:#ef950e;color:#08182b;font:700 12px system-ui;box-shadow:0 5px 22px #0008}
+ body.mobile-timeline-hidden .thumb-section{display:none!important}
+ body.mobile-timeline-hidden .layout{bottom:0!important;height:100dvh!important}
+ body.mobile-timeline-hidden .stage{height:min(100dvh,177.78vw)!important;max-height:100dvh!important;width:min(100vw,56.25dvh)!important}
+ body.mobile-timeline-hidden .mobile-timeline-toggle{bottom:10px}
+ body.mobile-controls-open .mobile-timeline-toggle{display:none!important}
+}
+</style>
+<button type="button" id="mobileTimelineToggle" class="mobile-timeline-toggle" aria-controls="sceneThumbs" aria-expanded="true">Zaman çizelgesini gizle</button>
+<script id="mobile-timeline-toggle-script">
+(()=>{const b=document.getElementById('mobileTimelineToggle');if(!b)return;const set=hidden=>{document.body.classList.toggle('mobile-timeline-hidden',hidden);b.setAttribute('aria-expanded',String(!hidden));b.textContent=hidden?'Görselleri göster':'Zaman çizelgesini gizle';};b.addEventListener('click',()=>set(!document.body.classList.contains('mobile-timeline-hidden')));})();
+</script>
+
+
+<style id="mobile-timeline-final-layout-fix">
+@media (max-width:900px){
+  .thumb-section{
+    position:fixed!important;left:0!important;right:0!important;bottom:0!important;top:auto!important;
+    width:100vw!important;min-width:0!important;height:112px!important;max-height:112px!important;
+    display:flex!important;flex-direction:column!important;visibility:visible;pointer-events:auto;
+    z-index:70!important;padding:8px 6px calc(8px + env(safe-area-inset-bottom))!important;
+    background:#06172a!important;border-top:1px solid #ffffff35!important;
+  }
+  .thumb-strip{display:flex!important;flex:1 1 auto!important;min-height:0!important;width:100%!important;
+    height:auto!important;overflow-x:auto!important;overflow-y:hidden!important;align-items:center!important;}
+  .scene-thumb{display:block!important;flex:0 0 72px!important;width:72px!important;height:78px!important;}
+  .mobile-timeline-toggle{display:block!important;position:fixed!important;left:8px!important;right:auto!important;
+    bottom:calc(120px + env(safe-area-inset-bottom))!important;top:auto!important;z-index:90!important;
+    max-width:calc(100vw - 16px);padding:8px 11px!important;font-size:11px!important;}
+  body.mobile-timeline-hidden .thumb-section{display:none!important;visibility:hidden!important;}
+  body.mobile-timeline-hidden .layout{bottom:0!important;height:100dvh!important;}
+  body.mobile-timeline-hidden .stage{height:min(100dvh,177.78vw)!important;max-height:100dvh!important;width:min(100vw,56.25dvh)!important;}
+  body.mobile-timeline-hidden .mobile-timeline-toggle{left:8px!important;right:auto!important;bottom:calc(10px + env(safe-area-inset-bottom))!important;}
+  body.mobile-controls-open .mobile-timeline-toggle{display:none!important;}
+}
+@media (max-width:900px) and (orientation:landscape){
+  .thumb-section{height:86px!important;max-height:86px!important;padding:4px 6px!important;}
+  .scene-thumb{flex-basis:58px!important;width:58px!important;height:68px!important;}
+  .mobile-timeline-toggle{bottom:calc(92px + env(safe-area-inset-bottom))!important;}
+}
+</style>
+
+
+<style id="mobile-performance-and-timeline-v2">
+/* Mobile-first lightweight preview mode */
+.mobile-seconds-timeline{display:none}
+.mobile-mode-switch{display:none}
+@media(max-width:900px){
+ .mobile-mode-switch{display:block;position:fixed;right:8px;top:8px;z-index:120;border:1px solid #ffffff55;border-radius:999px;padding:8px 10px;background:#082a4c;color:#fff;font:700 11px system-ui;box-shadow:0 3px 12px #0006}
+ body.performance-preview .scene:before{display:none!important}
+ body.performance-preview .grain{display:none!important}
+ body.performance-preview .scene img{filter:none!important;will-change:auto!important}
+ body.performance-preview .stage{box-shadow:none!important}
+ body.performance-preview .stage.transitioning .flash,body.performance-preview .stage.transitioning .flare{display:none!important;animation:none!important}
+ body.performance-preview .caption .word{filter:none!important;transition:none!important}
+ body.performance-preview .caption .word.visible{transform:none!important}
+ body.performance-preview .audio-bars b{animation:none!important}
+ .mobile-seconds-timeline{display:none;position:fixed;left:0;right:0;bottom:0;z-index:110;padding:5px 10px calc(6px + env(safe-area-inset-bottom));background:#041324f5;border-top:1px solid #ffffff35;box-shadow:0 -5px 20px #0005}
+ body.mobile-paused .mobile-seconds-timeline{display:block}
+ .mobile-seconds-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font:700 11px system-ui;color:#fff}
+ .mobile-seconds-head span{font-variant-numeric:tabular-nums;color:#ef950e}
+ .mobile-seconds-timeline input{display:block;width:100%;height:22px;margin:2px 0 0;accent-color:#ef950e;touch-action:pan-x}
+ body.mobile-paused .thumb-section{bottom:48px!important;height:108px!important;max-height:108px!important}
+ body.mobile-paused.mobile-timeline-hidden .thumb-section{display:none!important}
+ body.mobile-paused .mobile-timeline-toggle{bottom:calc(158px + env(safe-area-inset-bottom))!important}
+ body.mobile-paused.mobile-timeline-hidden .mobile-timeline-toggle{bottom:calc(54px + env(safe-area-inset-bottom))!important}
+ body.mobile-paused .mobile-seconds-timeline{min-height:48px}
+ .thumb-section h3,.thumb-help,.toggle-thumb-timeline,.thumb-actions{display:none!important}
+ .thumb-section{padding:5px!important}
+ .thumb-strip{display:flex!important;flex-direction:row!important;gap:6px!important;overflow-x:auto!important;overflow-y:hidden!important;align-items:center!important;scrollbar-width:thin}
+ .scene-thumb{position:relative!important;display:block!important;flex:0 0 64px!important;width:64px!important;height:86px!important;min-height:0!important;padding:0!important;overflow:hidden!important;border:1px solid #ffffff45!important;border-radius:5px!important;background:#12263b!important}
+ .scene-thumb img{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}
+ .scene-thumb .thumb-info,.scene-thumb strong,.scene-thumb small{display:none!important}
+ .scene-thumb.current,.scene-thumb.selected-thumb{outline:2px solid #ef950e!important;outline-offset:-2px}
+ body.mobile-timeline-hidden .mobile-seconds-timeline{bottom:0}
+ body.mobile-controls-open .mobile-mode-switch{display:none!important}
+}
+@media(max-width:900px) and (orientation:landscape){
+ body.mobile-paused .thumb-section{bottom:46px!important;height:82px!important;max-height:82px!important}
+ body.mobile-paused .mobile-timeline-toggle{bottom:calc(132px + env(safe-area-inset-bottom))!important}
+ body.mobile-paused.mobile-timeline-hidden .mobile-timeline-toggle{bottom:calc(54px + env(safe-area-inset-bottom))!important}
+}
+/* On paused mobile frames, apply focus/scale as a single transform so it works on Android browsers. */
+@media(max-width:900px){
+ body.mobile-paused .scene.active img{animation:none!important;translate:none!important;scale:none!important;transform:translate(var(--focus-x,0px),var(--focus-y,0px)) scale(var(--user-scale,1))!important;transform-origin:center center!important}
+}
+</style>
+<button type="button" id="mobileModeSwitch" class="mobile-mode-switch" aria-pressed="true">⚡ Önizleme modu</button>
+<div class="mobile-seconds-timeline" id="mobileSecondsTimeline" aria-label="Saniye zaman çizelgesi">
+ <div class="mobile-seconds-head"><b>Duraklatılan saniye</b><span id="mobileSecondsLabel">00:00.0</span></div>
+ <input id="mobileSecondsRange" type="range" min="0" max="100" step="0.1" value="0" aria-label="Saniyeye git">
+</div>
+<script id="mobile-performance-and-timeline-v2-script">
+(()=>{
+ const body=document.body,modeBtn=document.getElementById('mobileModeSwitch'),range=document.getElementById('mobileSecondsRange'),label=document.getElementById('mobileSecondsLabel');
+ const mobile=()=>matchMedia('(max-width:900px)').matches;
+ // Lightweight mode is enabled by default on phones; desktop rendering is untouched.
+ if(mobile())body.classList.add('performance-preview');
+ const fmtLocal=v=>{v=Math.max(0,+v||0);return String(Math.floor(v/60)).padStart(2,'0')+':'+String(Math.floor(v%60)).padStart(2,'0')+'.'+Math.floor((v%1)*10)};
+ const update=()=>{if(range){range.max=String(typeof total!=='undefined'?total:100);range.value=String(typeof elapsed!=='undefined'?elapsed:0)}if(label)label.textContent=fmtLocal(typeof elapsed!=='undefined'?elapsed:0);body.classList.toggle('mobile-paused',mobile()&&!playing)};
+ if(modeBtn){const paint=()=>{const on=body.classList.contains('performance-preview');modeBtn.textContent=on?'⚡ Önizleme modu':'✨ Kalite modu';modeBtn.setAttribute('aria-pressed',String(on));};modeBtn.addEventListener('click',()=>{body.classList.toggle('performance-preview');paint()});paint();}
+ if(range){range.addEventListener('input',()=>{if(typeof seek==='function')seek(+range.value);update()});}
+ // Sync compact timeline with the existing player without replacing its controls.
+ document.getElementById('playToggle')?.addEventListener('click',()=>setTimeout(update,0));
+ document.getElementById('restart')?.addEventListener('click',()=>setTimeout(update,0));
+ document.getElementById('timeline')?.addEventListener('input',()=>setTimeout(update,0));
+ document.getElementById('seekButton')?.addEventListener('click',()=>setTimeout(update,0));
+ document.getElementById('mobileTimelineToggle')?.addEventListener('click',()=>setTimeout(update,0));
+ document.getElementById('mobileControlsToggle')?.addEventListener('click',()=>setTimeout(update,0));
+ window.addEventListener('resize',()=>{if(!mobile())body.classList.remove('performance-preview','mobile-paused');else update()});
+ setTimeout(update,100);
+})();
+</script>
+
+<style id="reels-enhance">
+/* ===== Avrasya Reels enhancement: cross-dissolve + renk + render modu ===== */
+/* z-index cross-dissolve: yeni sahne üste biner, eski sahne altta sönerek kapanır */
+.scene{z-index:1;transition:opacity .55s cubic-bezier(.4,0,.2,1),visibility .55s}
+.scene.active{z-index:2}
+@keyframes sceneReveal{from{opacity:0;filter:brightness(1.08)}to{opacity:1;filter:brightness(1)}}
+.caption .word.current{color:var(--highlight,#ef950e);text-shadow:0 0 18px var(--highlight-glow,#ef950e70),0 3px 15px #000}
+
+/* renk ayarları paneli */
+.reels-color-tools{margin:12px 0;padding:12px;border:1px solid #ffffff24;border-radius:10px;background:#ffffff08;display:grid;grid-template-columns:1fr auto;gap:8px 10px;align-items:center}
+.reels-color-tools .rt-head{grid-column:1/-1;font-size:13px;font-weight:800;color:var(--gold)}
+.reels-color-tools label{font-size:12px;color:#e9e7dd}
+.reels-color-tools input[type=color]{width:54px;height:30px;padding:2px;border:1px solid #ef950e99;border-radius:7px;background:#061e35;cursor:pointer}
+.reels-color-tools .rt-reset{grid-column:1/-1;font:inherit;font-size:12px;font-weight:800;padding:8px 10px;border:1px solid #ef950e99;border-radius:7px;background:#082a4c;color:#fff;cursor:pointer}
+.reels-color-tools small{grid-column:1/-1;color:#c6cabc;font-size:10px;line-height:1.4}
+
+/* render modu: sahneyi tam ekran kare yap (panel/parmak izi gizle) */
+body.render-mode{display:block!important;padding:0!important;margin:0!important;overflow:hidden!important;height:100vh!important}
+body.render-mode .layout{display:block!important;width:100vw!important;height:100vh!important;margin:0!important;gap:0!important;max-height:none!important}
+body.render-mode .stage{width:100vw!important;height:100vh!important;max-height:none!important;aspect-ratio:auto!important;margin:0!important;border:0!important;box-shadow:none!important}
+body.render-mode .panel,body.render-mode .thumb-section,body.render-mode .mobile-controls-toggle,body.render-mode .mobile-controls-close{display:none!important}
+
+/* render modu: kare kare yakalamada geçiş/flare/animasyon karışmasın */
+body.render-mode .scene{transition:none!important}
+body.render-mode .scene.active{animation:none!important;opacity:1!important;visibility:visible!important}
+body.render-mode .flash,body.render-mode .flare,body.render-mode .grain{display:none!important}
+body.render-mode .caption .word{transition:none!important;filter:none!important}
+body.render-mode .progress i{transition:none!important}
+body.render-mode .audio-bars b{animation:none!important}
+body.render-mode .scene.active img{animation-play-state:paused!important}
+/* logo: stage genisliginin yarisi kadar, tam ortali */
+.topline{display:flex!important;justify-content:center!important;align-items:center!important;padding:14px 16px!important}
+.topline .corner-logo,.corner-logo{width:50%!important;max-width:210px!important;height:auto!important;max-height:58px!important;margin:0 auto!important}
+@media(max-width:720px){.corner-logo{max-width:150px!important;max-height:32px!important}}
+@media(max-width:480px){.corner-logo{max-width:118px!important;max-height:26px!important}}
+</style>
+<script id="reels-enhance-js">
+/* ===== Avrasya Reels enhancement script ===== */
+(function(){
+ try{
+  var HTML_NAME="avrasya_gazne_reels";
+  var DEFAULT_PRIMARY="#ef950e";
+  var DEFAULT_ACCENT="#7fd3ff";
+  var LS_KEY="avrasyaGazneSavedLinks";
+  var root=document.documentElement;
+  var panel=document.getElementById('controlPanel');
+
+  function hexToRgba(hex,a){hex=String(hex||'').replace('#','');if(hex.length===3)hex=hex.charAt(0)+hex.charAt(0)+hex.charAt(1)+hex.charAt(1)+hex.charAt(2)+hex.charAt(2);var n=parseInt(hex,16);if(!isFinite(n))return 'rgba(239,149,14,'+a+')';var r=(n>>16)&255,g=(n>>8)&255,b=n&255;return 'rgba('+r+','+g+','+b+','+a+')';}
+  function store(k,v){try{if(v==null)localStorage.removeItem(k);else localStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+
+  /* ---- Renk ayarlari: ana renk (tema) + ikincil renk (altyazi vurgusu) ---- */
+  var primary=read(LS_KEY+':primary')||DEFAULT_PRIMARY;
+  var accent=read(LS_KEY+':accent')||DEFAULT_ACCENT;
+  function applyPrimary(hex){root.style.setProperty('--gold',hex);root.style.setProperty('--gold-light',hex);}
+  function applyAccent(hex){root.style.setProperty('--highlight',hex);root.style.setProperty('--highlight-glow',hexToRgba(hex,.46));}
+  applyPrimary(primary);applyAccent(accent);
+
+  if(panel){
+   var box=document.createElement('div');box.className='reels-color-tools';
+   var head=document.createElement('div');head.className='rt-head';head.textContent='Renk ayarlari';
+   var l1=document.createElement('label');l1.setAttribute('for','reelsPrimary');l1.textContent='Ana renk (tema vurgulari)';
+   var i1=document.createElement('input');i1.type='color';i1.id='reelsPrimary';i1.value=primary;
+   var l2=document.createElement('label');l2.setAttribute('for','reelsAccent');l2.textContent='Ikincil renk (altyazi vurgusu)';
+   var i2=document.createElement('input');i2.type='color';i2.id='reelsAccent';i2.value=accent;
+   var reset=document.createElement('button');reset.type='button';reset.className='rt-reset';reset.textContent='Renkleri sifirla';
+   var info=document.createElement('small');info.textContent='Ana renk temayi, ikincil renk altyazi aktif kelimesini renklendirir. Secimler tarayicida kaydedilir.';
+   box.append(head,l1,i1,l2,i2,reset,info);
+   var cam=panel.querySelector('.camera-controls');
+   if(cam&&cam.parentNode)cam.parentNode.insertBefore(box,cam.nextSibling);
+   else if(panel.firstChild)panel.insertBefore(box,panel.firstChild);
+   else panel.appendChild(box);
+   i1.addEventListener('input',function(){primary=i1.value;applyPrimary(primary);store(LS_KEY+':primary',primary);});
+   i2.addEventListener('input',function(){accent=i2.value;applyAccent(accent);store(LS_KEY+':accent',accent);});
+   reset.addEventListener('click',function(){primary=DEFAULT_PRIMARY;accent=DEFAULT_ACCENT;i1.value=primary;i2.value=accent;applyPrimary(primary);applyAccent(accent);store(LS_KEY+':primary',null);store(LS_KEY+':accent',null);});
+  }
+
+  /* ---- Moduler ses klasoru: ses/ (gecis.mp3, baslangic.mp3, arkaplan.mp3) ---- */
+  function mk(src,opts){var a=new Audio();a.preload='auto';a.src=src;if(opts){if(opts.loop)a.loop=true;if(opts.volume!=null)a.volume=opts.volume;}a.addEventListener('error',function(){a.dataset.missing='1';});return a;}
+  var sTransition=mk('ses/gecis.mp3',{volume:0.5});
+  var sStart=mk('ses/baslangic.mp3',{volume:0.6});
+  var sAmbient=mk('ses/arkaplan.mp3',{loop:true,volume:0.09});
+  function sfx(a){if(!a||a.dataset.missing==='1')return;try{a.currentTime=0;var p=a.play();if(p&&p['catch'])p['catch'](function(){});}catch(e){}}
+  function ambient(on){if(!sAmbient||sAmbient.dataset.missing==='1')return;try{if(on){if(sAmbient.paused){var p=sAmbient.play();if(p&&p['catch'])p['catch'](function(){});}}else{sAmbient.pause();}}catch(e){}}
+
+  /* ---- Dis anlatim sesi: <htmladi>.mp3 / .wav algilama ---- */
+  var audio=document.getElementById('narrationAudio');
+  window.__extNarrationProbeDone=false;
+  function wordDurs(total){var ns=(typeof narrationSegments!=='undefined'&&narrationSegments)||[];var w=ns.map(function(s){return Math.max(1,String(s).trim().split(/\s+/).filter(Boolean).length);});var sum=w.reduce(function(a,b){return a+b;},0)||1;return w.map(function(x){return Math.max(0.6,total*x/sum);});}
+  function install(src,dur){if(!audio)return;audio.src=src;audio.load();window.__externalNarration={src:src,duration:dur};try{var baked=total;/* gomülü süreler bu sesle uyumluysa koru */if(!(Math.abs(dur-baked)<1.0)&&typeof applyNarrationDurations==='function')applyNarrationDurations(wordDurs(dur));}catch(e){}window.__extNarrationProbeDone=true;}
+  function probe(list,i){if(i>=list.length){window.__extNarrationProbeDone=true;return;}var t=new Audio();t.preload='metadata';t.onloadedmetadata=function(){if(isFinite(t.duration)&&t.duration>0)install(list[i],t.duration);else probe(list,i+1);};t.onerror=function(){probe(list,i+1);};t.src=list[i];}
+  probe([HTML_NAME+'.mp3',HTML_NAME+'.wav'],0);
+
+  /* ---- Oynatici fonksiyonlarini sar: gecis + ortam sesi ---- */
+  var oPlay=window.play,oPause=window.pause,oReveal=window.revealScene;
+  if(typeof oPlay==='function')window.play=function(){var r=oPlay.apply(this,arguments);try{ambient(true);sfx(sStart);}catch(e){}return r;};
+  if(typeof oPause==='function')window.pause=function(){var r=oPause.apply(this,arguments);try{ambient(false);}catch(e){}return r;};
+  if(typeof oReveal==='function'){var lastScene=-1;window.revealScene=function(i){var ch=(i!==lastScene);lastScene=i;var r=oReveal.apply(this,arguments);try{if(ch&&typeof playing!=='undefined'&&playing)sfx(sTransition);}catch(e){}return r;};}
+  if(audio)audio.addEventListener('ended',function(){try{ambient(false);}catch(e){}});
+
+  /* ---- Headless render modu (?render=1) ---- */
+  var q=/[?&]render=1\b/.test(location.search);
+  if(q){
+   document.body.classList.add('render-mode');
+   window.__renderFrame=function(t){try{
+     playing=false;cancelAnimationFrame(raf);last=0;
+     t=Math.max(0,Math.min(total,t));elapsed=t;
+     var acc=0,next=0;for(;next<durations.length-1&&elapsed>=acc+durations[next];next++)acc+=durations[next];
+     if(elapsed>=total-1e-6){outro.classList.add('show');scenes.forEach(function(s){s.classList.remove('active');});updateControls();return false;}
+     revealScene(next);
+     syncTimedImage(elapsed,next);
+     updateCaption(scenes[next],elapsed-acc);
+     syncImageMotion(elapsed-acc,true);
+     updateControls();
+     var sc=scenes[next];sc.style.opacity='1';sc.style.visibility='visible';sc.classList.add('active');
+     return true;
+   }catch(e){return false;}};
+   window.__renderInfo=function(){return {total:total,durations:durations.slice()};};
+  }
+ }catch(e){try{console.error('reels-enhance',e);}catch(_){}}
+})();
+</script>
+<script id="reel-autoplay">(function(){try{if(!/[?&]auto=1\b/.test(location.search))return;var T="Gazne";document.body.classList.add("record-mode");var ov=document.createElement("div");ov.className="reel-intro";var k=document.createElement("div");k.className="ri-kicker";k.textContent="Avrasya";var t=document.createElement("div");t.className="ri-title";t.textContent=T;var r=document.createElement("div");r.className="ri-rule";ov.appendChild(k);ov.appendChild(t);ov.appendChild(r);document.body.appendChild(ov);function go(){try{if(typeof playing!=="undefined"&&!playing&&typeof play==="function")play();}catch(e){}}function start(){ov.classList.add("hide");setTimeout(function(){try{ov.parentNode&&ov.parentNode.removeChild(ov);}catch(e){}go();},650);}var tries=0;function wait(){var imgs=[].slice.call(document.querySelectorAll(".scene img"));var pend=imgs.filter(function(im){return !im.complete||!im.naturalWidth;});if(pend.length&&tries++<150){setTimeout(wait,100);return;}setTimeout(start,2500);}setTimeout(wait,200);}catch(e){}})();</script>
+<style id="reels-ux-2025">
+/* ===== Avrasya Reels UX 2025 ===== */
+/* 23) Hissedilir (abartısız) kamera hareketi */
+@keyframes moveZoom{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.14) translate(0,-1%)}}
+@keyframes moveLeft{from{transform:scale(1.07) translateX(3.2%)}to{transform:scale(1.13) translateX(-3.2%)}}
+@keyframes moveRight{from{transform:scale(1.07) translateX(-3.2%)}to{transform:scale(1.13) translateX(3.2%)}}
+@keyframes moveUp{from{transform:scale(1.07) translateY(3.2%)}to{transform:scale(1.13) translateY(-3.2%)}}
+@keyframes moveDown{from{transform:scale(1.07) translateY(-3.2%)}to{transform:scale(1.13) translateY(3.2%)}}
+@keyframes pullBack{from{transform:scale(1.14)}to{transform:scale(1)}}
+@keyframes drift{0%{transform:scale(1.06) translate(-2.4%,1.8%)}50%{transform:scale(1.14) translate(2.4%,-1%)}100%{transform:scale(1.08) translate(-1.2%,-1.8%)}}
+/* 20 konu etiketi sabit: üstten hizalı, büyüme aşağı doğru */
+.stage{container-type:inline-size}
+.caption-area{top:43%!important;transform:none!important;justify-content:flex-start!important}
+/* 21 taşma yok + 22 kelime bütünlüğü */
+.caption{font-size:clamp(15px,7.2cqi,34px)!important;line-height:1.14!important;overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important;max-width:100%!important}
+.caption .word{white-space:nowrap!important;word-break:keep-all!important}
+.tag{white-space:nowrap!important;max-width:100%!important;overflow:hidden!important;text-overflow:ellipsis!important}
+/* 24 outro logo daha dolgun */
+.outro .outro-logo{max-width:92%!important;max-height:170px!important;filter:drop-shadow(0 10px 24px rgba(10,25,45,.14)) brightness(1.03)!important}
+/* 25 outro yazı efektleri: blur + hafif fade/kayma */
+@keyframes outroTextIn{from{opacity:0;filter:blur(10px);transform:translateY(20px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+.outro.show h2{animation:outroTextIn .62s .3s cubic-bezier(.2,.8,.2,1) both!important}
+.outro.show p{animation:outroTextIn .62s .5s cubic-bezier(.2,.8,.2,1) both!important}
+/* 19 follow butonu sakin olsun (titreşen pulse halkası kaldırıldı) */
+.outro.show .follow{animation:followIn .45s .7s forwards!important}
+/* 27 notlar biçimini koru */
+#sceneNote,#captionEditor,#exportText{white-space:pre-wrap!important}
+</style>
+<script id="reels-ux-2025-js">
+(function(){
+ try{
+  /* 27: nota yazılan çoklu boşluk/satırlar aynen kaydedilsin (kırpma yok) */
+  document.addEventListener('click',function(e){
+   var t=e.target;
+   if(!t||!t.closest||!t.closest('#saveNoteBtn'))return;
+   var ta=document.getElementById('sceneNote');
+   var raw=ta?ta.value:'';
+   if(!raw||!raw.replace(/\s+/g,'').length){e.preventDefault();e.stopPropagation();return;}
+   e.preventDefault();e.stopPropagation();
+   try{
+    if(typeof savedNotes!=='undefined'){savedNotes.push({second:Math.floor(typeof elapsed!=='undefined'?elapsed:0),sceneIndex:(typeof idx!=='undefined'?idx:0),note:String(raw).replace(/\r\n?/g,'\n')});}
+    if(ta)ta.value='';
+    if(typeof refreshExport==='function')refreshExport();
+   }catch(_){}
+  },true);
+ }catch(_){}
+})();
+</script>
+</body></html>

@@ -1,0 +1,20 @@
+SES KLASÖRÜ (modüler) — Avrasya Reels
+=====================================
+
+Bu klasöre asağıdaki ses dosyalarını koy. HTML bunları otomatik algılar.
+Eksik dosya sorun değildir; sadece o ses çalmaz, video normal çalışır.
+Dosya adları aynen aşağıdaki gibi olmalı (küçük harf, uzantı .mp3):
+
+  gecis.mp3      → Sahne/konu geçişlerinde çalan kısa "whoosh" geçiş sesi.
+  baslangic.mp3  → Video (Oynat) ilk başladığında çalan açılış sesi.
+  arkaplan.mp3   → Videoyu baştan sona kaplayan, kısık sesli enstrümantal
+                   fon müziği. Döngüde (loop) çalar; anlatımı örtmeyecek
+                   şekilde ~%9 ses seviyesinde çalar.
+
+Notlar:
+- Format: MP3 (en uyumlu). Kısa efektler 0.2–1.5 sn olmalı.
+- Anlatım sesi (dış ses) ayrıdır: HTML dosyasının yanına, HTML ile aynı adı
+  taşıyan .mp3 veya .wav koyarsan (örn. avrasya_saleng_gecidi_reels.mp3)
+  onu otomatik algılar ve oynatır. Video, o sesin bitişiyle biter.
+- Vurgu/renk ve ses seviyeleri HTML panelindeki "Renk ayarları" ile
+  değiştirilebilir.

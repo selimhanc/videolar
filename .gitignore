@@ -1,0 +1,8 @@
+# Video dosyaları (mp4) hariç tutulur
+*.mp4
+*.MP4
+
+# Sistem / geçici dosyalar
+Thumbs.db
+desktop.ini
+*.tmp

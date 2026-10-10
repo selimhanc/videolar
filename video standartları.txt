@@ -1,0 +1,57 @@
+Okuma hızı = karakter sayısı ÷ süre (saniye)
+
+Örneğin 80 karakterlik altyazı 4 saniyede okunuyorsa:
+
+20 karakter/saniye
+
+1 karakter için 0,05 saniye
+
+100 karakter için 5 saniye
+
+---
+
+### Reels video standardı
+
+1. **Kurgu hızı:** Altyazı tamamlandığında sonraki slayta hemen geç. Gereksiz bekleme ve boş süre bırakma. Mevcut hızlı akışı koru.
+2. **Normal slayt geçişleri:** Konu aynı kaldığı sürece fade, kararma veya yavaşlatıcı geçiş efekti kullanma. Görüntü doğrudan değişsin.
+3. **Lens flare:** Yalnızca yeni bir konuya geçerken kullan. Kısa ve etkileyici olsun; sahne geçişini geciktirmesin.
+4. **Kamera hareketleri:** Görsellere anlamlı ve ölçülü Ken Burns hareketleri uygula: yakınlaşma, uzaklaşma, yatay kayma veya dikey kayma. Her görsele uygun hareket seç.
+5. **Altyazı-görsel eşleşmesi:** Altyazıyı, anlatım sırasını ve ilgili görseli değiştirme. Kamera hareketlerini bunlardan bağımsız düzenle.
+6. **Zaman çizelgesi:** Her görsel bir kez ve kendi sırasında bulunsun. Görselleri tekrarlama veya gruplama.
+7. **Görsel kadrajı:** Görseller dikey Reels kadrajını `cover` mantığıyla doldursun; önemli özneler kadraj dışında kalmasın.
+8. **Türkçe:** Metin, altyazı ve seslendirmede doğru Türkçe yazımı ve gereken â, î, û gibi şapkalı harfleri kontrol et.
+9. **Mevcut işlevleri koru:** Bir düzenleme yaparken çalışan animasyonu, zaman çizelgesini, altyazıları veya görsel eşleşmelerini bozma. Değişiklikleri mümkün olduğunca sınırlı tut.
+
+---
+
+SRİ LANKA VİDEOSU İÇİN
+
+kuş balık ve fil görselleri odak noktası hayvanlar değil onları güzelce odağa al. görsellerde neredeyse hiç hareket yok anlamlı hareket ekle mesela kuş yan cepheden o zaman soldan sağa hafif hareket kuşu başı görünür. kezar dağda uzakta olduğu için zoom in. veya müslümanların fotosu kalabalık olduğu için hızlı ama aceleci olmayan bir sağdan sola hareketi gibi. bunları standartlaştır. yeni konuya geçince yazı için yarım sn kadar bekle ilk kelime kaçıyor çünkü 
+
+---
+
+### Reels teknik standartları (HTML motoru + video üretimi)
+
+10. **Geçişler (z-index cross-dissolve):** Sahne geçişleri kesme (hard cut) değil, üst üste binerek eriyen (cross-dissolve) geçişle olsun. Gelen sahne daha yüksek `z-index` ile üste binsin ve `opacity` ile belirsin; giden sahne altta kalıp yumuşakça sönsün (süre ~0.55 sn). Geçiş biraz opaklık ile başlar, ekran kararmaz.
+11. **Lens flare / flash:** Flare ve flash katmanları **alfa (yarı saydam)** kalsın; karartma perdesi gibi geçişi örtmesin. Yalnızca yeni konuya geçişte tetiklensin ve geçişten uzun sürmesin. Render alırken flare/flash/grain kapatılır ki kare kare kararlı olsun.
+12. **Anlatım sesi (dış ses) algılama:** HTML, kendi dosya adıyla aynı olan `.mp3` veya `.wav` dosyasını (örn. `avrasya_saleng_gecidi_reels.mp3`) aynı klasörden otomatik algılasın ve Oynat'a basınca otomatik çalsın. Ses varsa **video, ses bitince biter**; zaman çizelgesi ve geçişler sesin süresine göre hizalanır. Ses yoksa zamanlayıcı ile oynar.
+13. **Renk seçici:** Ayarlar panelinde iki renk seçici olsun: **ana renk** (tema vurguları: etiket, buton, çizgiler) ve **ikincil renk** = **altyazıdaki aktif (vurgu) kelimenin rengi**. Seçimler tarayıcıda saklanır. Saleng videosu için ikincil vurgu rengi **buz mavisi** (`#7fd3ff`) varsayılandır.
+14. **Modüler ses klasörü (`ses/`):** Her proje klasöründe bir `ses` klasörü olsun. Beklenen dosyalar: `gecis.mp3` (sahne geçiş sesi), `baslangic.mp3` (açılış), `arkaplan.mp3` (kısık, döngülü enstrümantal fon). Eksik dosya hata değildir; sessizce atlanır.
+15. **Arka plan müziği:** Anlatımı örtmeyecek kadar kısık (yaklaşık %9) ve döngülü olsun; Oynat ile başlasın, Duraklat/bitişte dursun.
+16. **Yerel görseller:** Video üretimi ve hızlı geçişler için görseller mümkünse yerel klasöre indirilsin (`gorseller/`); ağ gecikmesi/rate-limit render'ı bozmasın.
+17. **Video üretimi (ffmpeg):** Anlatım metni HTML'in yanına `.txt` olarak yazılır. Video, headless Chrome ile kare kare (`?render=1` render modu) yakalanıp taşınabilir ffmpeg ile MP4'e (H.264 + AAC, 1080x1920, 30 fps) kodlanır. Video süresi anlatım sesinin süresine eşit olur.
+18. **Render modu:** `?render=1` ile açılan sayfada cross-dissolve, flare, flash, grain ve altyazı geçişleri kapatılır; kamera (Ken Burns) hareketi ilgili kareye sabitlenir. Böylece her kare deterministik olur.
+
+---
+
+### Reels görsel/içerik standartları (ek)
+
+19. **Outro "Takipte kalın" butonu:** Butonda ve çevresinde titreme (tremor) olmasın; butonu saran sallanma/parlama efekti kaldırılsın. Buton sabit ve sakin dursun.
+20. **Sabit konu etiketi (altyazı üstü):** Altyazının üstündeki konu etiketi sahne boyunca sabit kalsın; kaymasın, titreşmesin. Konum ve hizası kilitli olsun.
+21. **Altyazı taşması:** Altyazılar hiçbir zaman ekranın dışına taşmasın; satırlar kutu içinde kalsın, uzun metin sarma/ölçekle sığdırılsın.
+22. **Altyazıda kelime bütünlüğü:** Altyazı satırlara bölünürken kelimeler ortadan ayrılmasın; birlikte yazılması gereken kelimeler tek parça kalsın (kelime bazlı sarma, hece/tire ile bölme yok).
+23. **Hissedilir kamera hareketi:** Ken Burns hareketleri abartıya kaçmadan gözle fark edilir biçimde uygulansın; hareket sahne boyunca sürsün, etkisiz/tek karelik kalmasın. Durağan (hareketsiz) görünüm kırılsın.
+24. **Outro logo dolgunluğu:** Outro logosu daha dolgun/büyük ve baskın görünsün; kadrajda küçük veya zayıf kalmasın.
+25. **Outro yazı efektleri:** Outro metinlerine hafif **blur** ve hafif **fade ile kayarak giriş** efekti verilsin; özellikle outro'nun ilk cümlesi bu efektle aksın.
+26. **Sayfalar arası referans / link sistemi:** Reels sayfaları birbirine bağlanabilsin; ilgili/benzer içeriklere referans veren çalışan bir "İlişkili içerikler" link sistemi olsun.
+27. **Not kopyalama biçimi:** Alınan notlar başka alana kopyalanırken boşluklar silinmesin; satırlar ve boşluklar bozulmadan (biçim korunarak) kopyalansın.
